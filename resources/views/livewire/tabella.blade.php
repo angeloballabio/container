@@ -33,5 +33,5 @@
             @endforeach
         </tbody>
     </table>
-    {{ $operazioni->links() }}
+    {{ $operazioni->links('pagination-links') }}
 </div>
