@@ -19,6 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/local.css') }}" rel="stylesheet"> --}}
+    <livewire:styles />
+    <livewire:scripts />
+
 </head>
 <body>
     <div id="app">
@@ -36,7 +39,8 @@
                     <ul class="navbar-nav mr-auto">
                         @can('cliente-users')
                         <li class=nav-item>
-                            <a class="nav-link" href="{{ route('cliente.operazione.index') }}">Ordini</a>
+                            {{-- <a class="nav-link" href="{{ route('cliente.operazione.index') }}">Ordini</a> --}}
+                            <a class="nav-link" href="{{ route('operazioni') }}">Ordini</a>
                         </li>
                         @endcan
                     </ul>

@@ -13,32 +13,32 @@ class OperazioneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /* public function index()
     {
         $operazioni = Operazione::paginate(28);
         return view('/cliente/operazioni', compact('operazioni'));
-    }
+    } */
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    /* public function create()
     {
         //
     }
-
+ */
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    /* public function store(Request $request)
     {
         //
-    }
+    } */
 
     /**
      * Display the specified resource.
@@ -46,10 +46,10 @@ class OperazioneController extends Controller
      * @param  \App\Operazione  $operazione
      * @return \Illuminate\Http\Response
      */
-    public function show(Operazione $operazione)
+    /* public function show(Operazione $operazione)
     {
         //
-    }
+    } */
 
     /**
      * Show the form for editing the specified resource.
@@ -57,10 +57,10 @@ class OperazioneController extends Controller
      * @param  \App\Operazione  $operazione
      * @return \Illuminate\Http\Response
      */
-    public function edit(Operazione $operazione)
+    /* public function edit(Operazione $operazione)
     {
         //
-    }
+    } */
 
     /**
      * Update the specified resource in storage.
@@ -69,10 +69,10 @@ class OperazioneController extends Controller
      * @param  \App\Operazione  $operazione
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Operazione $operazione)
+    /* public function update(Request $request, Operazione $operazione)
     {
         //
-    }
+    } */
 
     /**
      * Remove the specified resource from storage.
@@ -80,8 +80,8 @@ class OperazioneController extends Controller
      * @param  \App\Operazione  $operazione
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Operazione $operazione)
+    /* public function destroy(Operazione $operazione)
     {
         //
-    }
+    } */
 }

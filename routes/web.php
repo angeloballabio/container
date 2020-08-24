@@ -26,8 +26,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 Route::namespace('Cliente')->prefix('cliente')->name('cliente.')->middleware('can:cliente-users')->group(function(){
-    Route::resource('/operazione', 'OperazioneController');
+    /* Route::resource('/operazione', 'OperazioneController'); */
 
 });
+
+Route::livewire('/operazioni', 'operazioni')->name('operazioni')->middleware('auth');
 
 
