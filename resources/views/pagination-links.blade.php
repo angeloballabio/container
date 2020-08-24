@@ -1,5 +1,6 @@
 @if ($paginator->hasPages())
-<ul class="flex justify-between">
+{{-- <ul class="flex justify-between"> --}}
+<ul class="d-flex justify-content-start">
     <!-- prev -->
     @if ($paginator->onFirstPage())
     <li class="w-16 px-2 py-1 text-center rounded border bg-gray" style="list-style-type:none;">Prev</li>
@@ -10,17 +11,17 @@
 
     <!-- numbers -->
     @foreach ($elements as $element)
-    <div class="flex">
+   {{--  <div class="flex"> --}}
         @if (is_array($element))
         @foreach ($element as $page => $url)
         @if ($page == $paginator->currentPage())
-        <li class="mx-2 w-10 px-2 py-1 text-center rounded border shadow bg-blue text-white cursor-pointer" style="list-style-type:none;" wire:click="gotoPage({{$page}})">{{$page}}</li>
+        <li class="{{-- mx-2 --}} w-10 px-2 py-1 text-center rounded border shadow bg-blue-500 text-white cursor-pointer" style="list-style-type:none;" wire:click="gotoPage({{$page}})">{{$page}}</li>
         @else
-        <li class="mx-2 w-10 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer" style="list-style-type:none;" wire:click="gotoPage({{$page}})">{{$page}}</li>
+        <li class="{{-- mx-2 --}} w-10 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer" style="list-style-type:none;" wire:click="gotoPage({{$page}})">{{$page}}</li>
         @endif
         @endforeach
         @endif
-    </div>
+   {{--  </div> --}}
     @endforeach
     <!-- end numbers -->
 
