@@ -85,7 +85,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-1">
             <div class="container-fluid">
                 @include('partials.alerts')
                 @yield('content')
