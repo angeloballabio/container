@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-5">
                     <label for="inputValuta" class="col-5 float-left">Valuta :</label>
-                    <input type="text" class="col-6 float-left form-control p-1" style="height: 20px" id="inputValuta" value="{{ $operazione->valuta }}">
+                    <input type="number" class="col-6 float-left form-control p-1" style="height: 20px" id="inputValuta" value="{{ $operazione->valuta }}">
                 </div>
               </div>
 
@@ -50,15 +50,15 @@
                 </div>
                 <div class="col-4">
                     <label for="inputCartoni" class="col-7 float-left">Numero cartoni :</label>
-                    <input type="text" class="col-5 form-control float-left p-1" style="height: 20px" id="inputCartoni" value="{{ $operazione->cartoni }}">
+                    <input type="number" class="col-5 form-control float-left p-1" style="height: 20px" id="inputCartoni" value="{{ $operazione->cartoni }}">
                 </div>
                 <div class="col-4">
                     <label for="inputLordo" class="col-5 float-left">Peso lordo :</label>
-                    <input type="text" class="col-6 float-left form-control" style="height: 20px" id="inputLordo" value="{{ $operazione->lordo_obl }}">
+                    <input type="number" class="col-6 float-left form-control" style="height: 20px" id="inputLordo" value="{{ $operazione->lordo_obl }}">
                 </div>
                 <div class="col-4">
                     <label for="inputCubatura" class="col-5 float-left">Cubatura :</label>
-                    <input type="text" class="col-6 float-left form-control" style="height: 20px" id="inputCubatura" value="{{ $operazione->cubatura }}">
+                    <input type="number" class="col-6 float-left form-control" style="height: 20px" id="inputCubatura" value="{{ $operazione->cubatura }}">
                 </div>
                 <div class="col-5">
                     <label for="inputDataCarico" class="col-5 float-left">Data carico :</label>
@@ -102,31 +102,31 @@
                 </div>
                 <div class="col-6">
                     <label for="inputDiritti" class="col-5 float-left">Tot diritti doganali :</label>
-                    <input type="text" class="col-7 form-control float-left p-1" style="height: 20px" id="inputDiritti" value="{{ $operazione->totale_diritti }}">
+                    <input type="number" class="col-7 form-control float-left p-1" style="height: 20px" id="inputDiritti" value="{{ $operazione->totale_diritti }}">
                 </div>
                 <div class="col-6">
                     <label for="inputLordo" class="col-5 float-left">Tot iva :</label>
-                    <input type="text" class="col-7 float-left form-control" style="height: 20px" id="inputLordo" value="{{ $operazione->totale_iva }}">
+                    <input type="number" class="col-7 float-left form-control" style="height: 20px" id="inputLordo" value="{{ $operazione->totale_iva }}">
                 </div>
                 <div class="col-2">
                     <label for="inputSanitario" class="col-10 float-left">Sanitario :</label>
-                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputSanitario" {{ $operazione->richiede_sanitari }} ? checked : ''>
+                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputSanitario" {{-- {{ $operazione->richiede_sanitari }} ? checked : '' --}}>
                 </div>
                 <div class="col-4">
                     <label for="inputNumeroSanitari" class="col-8 float-left">Sanitari emessi n° :</label>
-                    <input type="text" class="col-4 form-control float-left p-1" style="height: 20px" id="inputNumneroSanitari" value="{{ $operazione->numero_sanitari }}">
+                    <input type="number" class="col-4 form-control float-left p-1" style="height: 20px" id="inputNumneroSanitari" value="{{ $operazione->numero_sanitari }}">
                 </div>
                 <div class="col-2">
                     <label for="inputCe" class="col-6 float-left">CE :</label>
-                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputCe" ( {{ $operazione->richiede_ce }} == 1) ? checked : ''>
+                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputCe" {{-- ( {{ $operazione->richiede_ce }} == 1) ? checked : '' --}}>
                 </div>
                 <div class="col-2">
                     <label for="inputCites" class="col-8 float-left">CITES :</label>
-                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputCites" ( {{ $operazione->richiede_cites }} == 1 ) ? checked : ''>
+                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputCites" {{-- ( {{ $operazione->richiede_cites }} == 1 ) ? checked : '' --}}>
                 </div>
                 <div class="col-2">
                     <label for="inputAge" class="col-7 float-left">AGE :</label>
-                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputAge" ( {{ $operazione->richiede_conformita }} == 1) ? checked : ''>
+                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputAge" {{-- ( {{ $operazione->richiede_conformita }} == 1) ? checked : '' --}}>
                 </div>
                 <div class="col-11">
                     <label for="inputDoganaT1" class="col-3 float-left">Dogana per T1 :</label>

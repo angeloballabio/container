@@ -7,7 +7,7 @@ use App\Operazione;
 
 class Formdata extends Component
 {
-    protected $ordine_id = 1;
+    public $ordine_id = 1;
 
     protected $listeners = [
         'OrdineSelezionato' => 'ordineSelezionato',

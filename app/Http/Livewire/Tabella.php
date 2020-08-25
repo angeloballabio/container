@@ -14,10 +14,10 @@ class Tabella extends Component
 
 
     protected $listeners = [
-        'OrdineSelezionato' => 'ordineSelezionato',
+        'OrdineSelezionato' => 'tabellaSelezionato',
     ];
 
-    public function ordineSelezionato($ordineId){
+    public function tabellaSelezionato($ordineId){
         $this->selezionato = $ordineId;
 
     }

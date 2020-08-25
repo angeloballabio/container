@@ -3,9 +3,10 @@
 <ul class="d-flex justify-content-start">
     <!-- prev -->
     @if ($paginator->onFirstPage())
-    <li class="w-16 px-2 py-1 text-center rounded border bg-gray" style="list-style-type:none;">Prev</li>
+    {{-- <li class="w-16 px-2 py-1 text-center rounded border bg-gray" style="list-style-type:none;">Prev</li> --}}
+    <li class="w-20 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer" style="list-style-type:none;"  {{-- wire:click="previousPage" --}} >@lang('pagination.previous')</li>
     @else
-    <li class="w-16 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer"style="list-style-type:none;"  wire:click="previousPage">Prev</li>
+    <li class="w-20 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer" style="list-style-type:none;"  wire:click="previousPage" >@lang('pagination.previous')</li>
     @endif
     <!-- prev end -->
 
@@ -28,9 +29,10 @@
 
     <!-- next  -->
     @if ($paginator->hasMorePages())
-    <li class="w-16 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer" style="list-style-type:none;" wire:click="nextPage">Next</li>
+    <li class="w-20 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer" style="list-style-type:none;" wire:click="nextPage">@lang('pagination.next')</li>
     @else
-    <li class="w-16 px-2 py-1 text-center rounded border bg-gray" style="list-style-type:none;">Next</li>
+    {{-- <li class="w-16 px-2 py-1 text-center rounded border bg-gray" style="list-style-type:none;">Next</li> --}}
+    <li class="w-20 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer" style="list-style-type:none;" {{-- wire:click="nextPage" --}}>@lang('pagination.next')</li>
     @endif
     <!-- next end -->
 </ul>
