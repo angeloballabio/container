@@ -30,7 +30,7 @@
 
     <!-- next  -->
     @if ($paginator->lastPage() == $paginator->currentPage())
-    <li class="w-20 px-2 py-1 text-center rounded border shadow cursor-pointer text-secondary" style="list-style-type:none;" {{-- wire:click="nextPage" --}}>@lang('pagination.next')</li>
+    <li class="w-20 px-2 py-1 text-center rounded border shadow text-secondary" style="list-style-type:none;" {{-- wire:click="nextPage" --}}>@lang('pagination.next')</li>
     @else
     {{-- <li class="w-16 px-2 py-1 text-center rounded border bg-gray" style="list-style-type:none;">Next</li> --}}
     <li class="w-20 px-2 py-1 text-center rounded border shadow cursor-pointer" style="list-style-type:none;" wire:click="nextPage">@lang('pagination.next')</li>

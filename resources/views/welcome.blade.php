@@ -14,7 +14,7 @@
     <!-- The slideshow -->
     <div class="carousel-inner" style="width: 100%; height: 100%; background-color: gray">
       <div class="carousel-item active">
-        <img src="/immagini/cargo-containers-at-port.jpg" style="width: 45%; height: 45%;" alt="container al porto" width="1200" height="800">
+        <img src="/immagini/cargo-containers-at-port.jpg" style="width: 45%; height: 45%;"  alt="container al porto" width="1200" height="800">
         <p style="color: white; font-size: 40px; position: absolute; left: 50%; transform: translatex(-50%); top: 100px; font-weight: bold;">Gestore del servizio di sdoganamento Container</p>
       </div>
       <div class="carousel-item">

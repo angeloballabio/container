@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   {{--  <link href = {{ asset('css/tw.css') }} rel = "stylesheet" /> --}}
     <link href="{{ asset('css/special.css') }}" rel="stylesheet">
     <livewire:styles />
     <livewire:scripts />
