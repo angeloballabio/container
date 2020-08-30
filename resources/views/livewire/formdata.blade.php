@@ -111,7 +111,7 @@
                 </div>
                 <div class="col-2">
                     <label for="inputSanitario" class="col-10 float-left">Sanitario :</label>
-                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputSanitario" {{-- {{ $operazione->richiede_sanitari }} ? checked : '' --}}>
+                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputSanitario" value='true' {{ $operazione->richiede_sanitari ? 'checked' : '' }} >
                 </div>
                 <div class="col-4">
                     <label for="inputNumeroSanitari" class="col-8 float-left">Sanitari emessi n° :</label>
@@ -119,15 +119,15 @@
                 </div>
                 <div class="col-2">
                     <label for="inputCe" class="col-6 float-left">CE :</label>
-                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputCe" {{-- ( {{ $operazione->richiede_ce }} == 1) ? checked : '' --}}>
+                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputCe" value='true' {{ $operazione->richiede_ce ? 'checked':'' }} >
                 </div>
                 <div class="col-2">
                     <label for="inputCites" class="col-8 float-left">CITES :</label>
-                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputCites" {{-- ( {{ $operazione->richiede_cites }} == 1 ) ? checked : '' --}}>
+                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputCites" value='true' {{ $operazione->richiede_cites ? 'checked' : '' }} >
                 </div>
                 <div class="col-2">
                     <label for="inputAge" class="col-7 float-left">AGE :</label>
-                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputAge" {{-- ( {{ $operazione->richiede_conformita }} == 1) ? checked : '' --}}>
+                    <input type="checkbox" class="col-1 float-left form-control" style="height: 20px" id="inputAge" value='true' ( {{ $operazione->richiede_conformita ? 'checked' : '' }} >
                 </div>
                 <div class="col-11">
                     <label for="inputDoganaT1" class="col-3 float-left">Dogana per T1 :</label>
@@ -139,7 +139,7 @@
         <div class="shadow p-2 mb-2 bg-white rounded">
             <div class="row">
                 <div class="col-4">
-                    <button type="button" name="aggiungi" id="aggiungi" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Aggiungi operazione</button>
+                    <button type="button" name="aggiungi" id="aggiungi" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" >Aggiungi operazione</button>
                 </div>
                 <div class="col-4">
                     <button type="button" name="modifica" id="modifica" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Modifica operazione</button>
@@ -148,7 +148,7 @@
                     <button type="button" name="cancella" id="cancella" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Cancella operazione</button>
                 </div>
                 <div class="col-4">
-                    <button type="button" name="generaDistinta" id="GeneraDistinta" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Genera distinta</button>
+                    <button type="button" name="generaDistinta" id="generaDistinta" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:click="$emit('FareDistinta',{{ $operazione->id }})" {{-- wire:click='distinta' --}}>Genera distinta</button>
                 </div>
                 <div class="col-4">
                     <button type="button" name="generaMandati" id="generaMandati" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Genera mandati</button>

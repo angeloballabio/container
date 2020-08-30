@@ -31,5 +31,5 @@ Route::namespace('Cliente')->prefix('cliente')->name('cliente.')->middleware('ca
 });
 
 Route::livewire('/operazioni', 'operazioni')->name('operazioni')->middleware('auth');
-
+Route::livewire('/genera-distinta', 'genera-distinta')->name('distinta')->middleware('auth');
 

@@ -18,6 +18,12 @@ class Formdata extends Component
 
     }
 
+    public function distinta(){
+        /* dd('distinta'); */
+        /* route('distinta',['ordine_id' => $this->ordine_id]); */
+        return view('distinta',['operazione' => $this->ordine_id]);
+    }
+
     public function render()
     {
 

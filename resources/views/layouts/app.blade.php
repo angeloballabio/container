@@ -43,6 +43,10 @@
                             {{-- <a class="nav-link" href="{{ route('cliente.operazione.index') }}">Ordini</a> --}}
                             <a class="nav-link" href="{{ route('operazioni') }}">Ordini</a>
                         </li>
+                        <li class=nav-item>
+                            {{-- <a class="nav-link" href="{{ route('cliente.operazione.index') }}">Ordini</a> --}}
+                            <a class="nav-link" href="{{ route('distinta') }}">Distinta</a>
+                        </li>
                         @endcan
                     </ul>
 
