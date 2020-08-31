@@ -7,7 +7,7 @@ use App\Articoli;
 
 class DatiArticolo extends Component
 {
-    public $articolo_id = 1;
+    public $articolo_id = 0;
 
     protected $listeners = [
         'ArticoloSelezionato' => 'articoloSelezionato',

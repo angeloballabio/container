@@ -7,6 +7,9 @@
             </div>
             <div class="col-sm-6 " style="border-style: solid;">
                 <livewire:formdata />
+                <livewire:azioni-formdata />
+
+
         </div>
     </div>
 </div>

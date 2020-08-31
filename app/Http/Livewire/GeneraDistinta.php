@@ -7,20 +7,17 @@ use App\Operazione;
 
 class GeneraDistinta extends Component
 {
-    public $ordine_id;
+    public $ordine_id = 0;
 
-    protected $listeners = [
-        'FareDistinta' => 'distinta',
-    ];
 
-    public function distinta($ordineId){
-        $this->ordine_id = $ordineId;
-        dd($ordineId);
+    public function mount($id)
+    {
+
+        $this->ordine_id = $id;
     }
 
     public function render()
     {
-        /* $operazione = Operazione::where('id','=', $ordine_id)->get()->first(); */
         return view('livewire.genera-distinta', ['operazione' => Operazione::where('id', $this->ordine_id)->get()->first()]);
     }
 }

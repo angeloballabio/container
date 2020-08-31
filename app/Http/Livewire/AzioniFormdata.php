@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Operazione;
 
-class Formdata extends Component
+class AzioniFormdata extends Component
 {
     public $ordine_id = 0;
 
@@ -18,8 +18,15 @@ class Formdata extends Component
 
     }
 
+    public function azioneSelezionata(){
+
+        $id = $this->ordine_id;
+        return redirect(route('distinta', compact('id')));
+
+    }
+
     public function render()
     {
-        return view('livewire.formdata', ['operazione' => Operazione::where('id',$this->ordine_id)->get()->first()]);
+        return view('livewire.azioni-formdata', ['operazione' => Operazione::where('id',$this->ordine_id)->get()->first()]);
     }
 }

@@ -19,6 +19,7 @@ class Articoli extends Model
         'voce_doganale',
         'diritti_doganali',
         'val_iva',
+        'aliquota_iva',
         'acciaio',
         'acciaio_inox',
         'plastica',

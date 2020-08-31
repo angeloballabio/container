@@ -34,6 +34,30 @@
     background-color: rgba(237, 242, 247, var(--bg-opacity));
 }
 
+.bg-gray-300 {
+    --bg-opacity: 1;
+    background-color: #e2e8f0;
+    background-color: rgba(226, 232, 240, var(--bg-opacity));
+}
+
+.bg-gray-400 {
+    --bg-opacity: 1;
+    background-color: #cbd5e0;
+    background-color: rgba(203, 213, 224, var(--bg-opacity));
+}
+
+.bg-gray-500 {
+    --bg-opacity: 1;
+    background-color: #a0aec0;
+    background-color: rgba(160, 174, 192, var(--bg-opacity));
+}
+
+.bg-gray-600 {
+    --bg-opacity: 1;
+    background-color: #718096;
+    background-color: rgba(113, 128, 150, var(--bg-opacity));
+}
+
 .flex {
     display: flex;
 }
