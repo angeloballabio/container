@@ -5,11 +5,11 @@
             <tr>
                 <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">Descrizione Uk</th>
                 <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">Descrizione It</th>
-                <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">Tot. pezzi</th>
-                <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">Tot. colli</th>
-                <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">Tot. lordo</th>
-                <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">Tot. netto</th>
-                <th style="border-collapse: collapse; border: 1px solid black; text-align: center;">Tot. valore</th>
+                <th style="border-collapse: collapse; border: 1px solid black; text-align: center; width: 80px;">Tot. pezzi</th>
+                <th style="border-collapse: collapse; border: 1px solid black; text-align: center; width: 80px;">Tot. colli</th>
+                <th style="border-collapse: collapse; border: 1px solid black; text-align: center; width: 80px;">Tot. lordo</th>
+                <th style="border-collapse: collapse; border: 1px solid black; text-align: center; width: 80px;">Tot. netto</th>
+                <th style="border-collapse: collapse; border: 1px solid black; text-align: center; width: 80px;" >Tot. valore</th>
             </tr>
         </thead>
         <tbody>
