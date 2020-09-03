@@ -7,7 +7,7 @@ use App\Operazione;
 
 class AzioniFormdata extends Component
 {
-    public $ordine_id = 0;
+    public $ordine_id;
 
     protected $listeners = [
         'OrdineSelezionato' => 'ordineSelezionato',
@@ -23,6 +23,11 @@ class AzioniFormdata extends Component
         $id = $this->ordine_id;
         return redirect(route('distinta', compact('id')));
 
+    }
+
+    public function azzeraMaschera()
+    {
+        return redirect()->to('/operazioni');
     }
 
     public function render()

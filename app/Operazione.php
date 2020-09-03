@@ -33,6 +33,7 @@ class Operazione extends Model
         'numero_sanitari',
         'richiede_ce',
         'richiede_conformita',
+        'richiede_cites',
         'dogana_t1',
         'tipo_container',
         'sigillo'

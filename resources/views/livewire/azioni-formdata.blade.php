@@ -1,19 +1,10 @@
 <div>
-    {{-- <div class="shadow p-2 mb-2 bg-white rounded"> --}}
 
-        @if($operazione)
-        {{-- {{ dd($operazione) }} --}}
+
+        @if($ordine_id)
+
         <div class="shadow p-2 mb-2 bg-white rounded">
             <div class="row">
-                {{-- <div class="col-4">
-                    <button type="button" name="aggiungi" id="aggiungi" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" >Aggiungi operazione</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" name="modifica" id="modifica" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Modifica operazione</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" name="cancella" id="cancella" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Cancella operazione</button>
-                </div> --}}
                 <div class="col-4">
                     <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="azioneSelezionata">Genera distinta</button>
                 </div>
@@ -24,7 +15,7 @@
                     <button type="button" name="generaBollettini" id="generaBollettini" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Genera bollettini</button>
                 </div>
                 <div class="col-4">
-                    <button type="button" name="azzeraMaschera" id="azzeraMaschera" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" >Azzera maschera</button>
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" whire:click='azzeraMaschera'>Azzera maschera</button>
                 </div>
                 <div class="col-4">
                     <button type="button" name="fornitori" id="fornitori" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Fornitori</button>
@@ -46,19 +37,11 @@
                 </div>
             </div>
         </div>
-        {{-- {{ dd($operazione) }} --}}
+
         @else
         <div class="shadow p-2 mb-2 bg-white rounded">
         <div class="row">
-            {{-- <div class="col-4">
-                <button type="button" name="aggiungi" id="aggiungi" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" >Aggiungi operazione</button>
-            </div>
-            <div class="col-4">
-                <button type="button" name="modifica" id="modifica" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" disabled>Modifica operazione</button>
-            </div>
-            <div class="col-4">
-                <button type="button" name="cancella" id="cancella" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" disabled>Cancella operazione</button>
-            </div> --}}
+
             <div class="col-4">
                 <button type="button" name="generaDistinta" id="generaDistinta" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" disabled >Genera distinta</button>
             </div>
@@ -69,7 +52,7 @@
                 <button type="button" name="generaBollettini" id="generaBollettini" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" disabled>Genera bollettini</button>
             </div>
             <div class="col-4">
-                <button type="button" name="azzeraMaschera" id="azzeraMaschera" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" >Azzera maschera</button>
+                <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='azzeraMaschera'>Azzera maschera</button>
             </div>
             <div class="col-4">
                 <button type="button" name="fornitori" id="fornitori" class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Fornitori</button>
@@ -92,5 +75,5 @@
         </div>
         </div>
         @endif
-    {{-- </div> --}}
+
 </div>
