@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Operazione;
+use App\Fornitore;
 
 class Formdata extends Component
 {
@@ -131,6 +132,7 @@ class Formdata extends Component
 
     public function render()
     {
-        return view('livewire.formdata');
+        $fornitori = Fornitore::orderBy('soprannome', 'asc')->get()->all();
+        return view('livewire.formdata', compact('fornitori'));
     }
 }
