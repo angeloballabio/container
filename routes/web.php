@@ -33,3 +33,4 @@ Route::namespace('Cliente')->prefix('cliente')->name('cliente.')->middleware('ca
 Route::livewire('/operazioni', 'operazioni')->name('operazioni')->middleware('auth');
 Route::livewire('/genera-distinta/{id}', 'genera-distinta')->name('distinta')->middleware('auth');
 Route::livewire('/gestione-fornitori', 'gestione-fornitori')->name('fornitori')->middleware('auth');
+Route::livewire('/gestione-compagnie', 'gestione-compagnie')->name('compagnie')->middleware('auth');

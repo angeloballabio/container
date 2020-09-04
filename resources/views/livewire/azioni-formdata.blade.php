@@ -19,7 +19,7 @@
 
                 </div>
                 <div class="col-4">
-                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Compagnie aero/navali</button>
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneCompagnie'>Compagnie aero/navali</button>
                 </div>
                 <div class="col-4">
                     <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Destinatari</button>
@@ -35,6 +35,9 @@
                 </div>
                 <div class="col-4">
                     <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Tipo container</button>
+                </div>
+                <div class="col-4">
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Tipo valuta</button>
                 </div>
             </div>
         </div>
@@ -59,7 +62,7 @@
                 <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneFornitori'>Fornitori</button>
             </div>
             <div class="col-4">
-                <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Compagnie aero/navali</button>
+                <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneCompagnie'>Compagnie aero/navali</button>
             </div>
             <div class="col-4">
                 <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Destinatari</button>
@@ -75,6 +78,9 @@
             </div>
             <div class="col-4">
                 <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Tipo container</button>
+            </div>
+            <div class="col-4">
+                <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Tipo valuta</button>
             </div>
         </div>
         </div>

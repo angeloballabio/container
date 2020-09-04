@@ -22,7 +22,7 @@ class TabellaFornitori extends Component
 
     public function render()
     {
-        $fornitori = Fornitore::orderBy('nome','asc')->paginate(10);
+        $fornitori = Fornitore::orderBy('nome','asc')->paginate(17);
         return view('livewire.tabella-fornitori',compact('fornitori'));
     }
 }

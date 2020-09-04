@@ -28,8 +28,12 @@ class AzioniFormdata extends Component
 
     public function gestioneFornitori()
     {
-        $id = $this->ordine_id;
-        return redirect(route('fornitori', compact('id')));
+        return redirect(route('fornitori'));
+    }
+
+    public function gestioneCompagnie()
+    {
+        return redirect(route('compagnie'));
     }
 
     public function azzeraMaschera()

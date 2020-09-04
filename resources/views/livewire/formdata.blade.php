@@ -16,7 +16,7 @@
                     <select {{-- name="fornitore" id="fornitore" --}} class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="fornitore">
                         {{-- <option value="0">Effettua la scelta</option> --}}
                         @foreach ($fornitori as $fornitore)
-                          <option value="{{$fornitore->id}} {{ $fornitore == $fornitore->soprannome ? 'selected' : '' }}">{{$fornitore->soprannome}}</option>
+                          <option value="{{$fornitore->soprannome}} {{ $fornitore == $fornitore->soprannome ? 'selected' : '' }}">{{$fornitore->soprannome}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,7 +31,13 @@
             <div class="row">
                 <div class="col-7">
                     <label for="inputCompagnia" class="col-4 float-left">Compagnia navale :</label>
-                    <input type="text" class="col-7 form-control float-left p-1" style="height: 20px" id="inputCompagnia"  wire:model="compagnia_navale">
+                    {{-- <input type="text" class="col-7 form-control float-left p-1" style="height: 20px" id="inputCompagnia"  wire:model="compagnia_navale"> --}}
+                    <select {{-- name="fornitore" id="fornitore" --}} class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="compagnia_navale">
+                        {{-- <option value="0">Effettua la scelta</option> --}}
+                        @foreach ($compagnie as $compagnia)
+                          <option value="{{$compagnia->nome}} {{ $compagnia_navale == $compagnia->nome ? 'selected' : '' }}">{{$compagnia->nome}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="col-5">
                     <label for="inputDataArrivo" class="col-6 float-left">Data arrivo nave :</label>
