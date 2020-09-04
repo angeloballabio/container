@@ -6,12 +6,9 @@
                 <livewire:tabella-fornitori />
             </div>
             <div class="col-12 " style="border-style: solid;">
-                {{-- <livewire:formdata />
-                <livewire:azioni-formdata /> --}}
-
-
+                <livewire:dati-fornitore />
+                <livewire:azioni-fornitore />
             </div>
-            <button class="btn btn-primary btn-lg btn-block" wire:click="ritornaIndietro">Torna</button>
         </div>
-
+    </div>
 </div>

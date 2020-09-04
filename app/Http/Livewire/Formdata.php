@@ -132,7 +132,7 @@ class Formdata extends Component
 
     public function render()
     {
-        $fornitori = Fornitore::orderBy('soprannome', 'asc')->get()->all();
+        $fornitori = Fornitore::select('soprannome')->orderBy('soprannome', 'asc')->get()->all();
         return view('livewire.formdata', compact('fornitori'));
     }
 }

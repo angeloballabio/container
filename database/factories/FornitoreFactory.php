@@ -6,8 +6,11 @@ use App\Fornitore;
 use Faker\Generator as Faker;
 
 $factory->define(Fornitore::class, function (Faker $faker) {
+    $faker->addProvider(new \Faker\Provider\it_IT\Person($faker));
+    /* $faker->addProvider(new \Faker\Provider\zh_CN\Address($faker)); */
+
     return [
-        'soprannome' => $faker->word,
+        'soprannome' => $faker->unique()->firstName,
         'nome' => $faker->company,
         'indirizzo' => $faker->streetName,
         'cap' => $faker->postcode,

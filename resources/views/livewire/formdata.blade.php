@@ -16,7 +16,7 @@
                     <select {{-- name="fornitore" id="fornitore" --}} class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="fornitore">
                         {{-- <option value="0">Effettua la scelta</option> --}}
                         @foreach ($fornitori as $fornitore)
-                          <option value="{{$fornitore->id}}">{{$fornitore->soprannome}}</option>
+                          <option value="{{$fornitore->id}} {{ $fornitore == $fornitore->soprannome ? 'selected' : '' }}">{{$fornitore->soprannome}}</option>
                         @endforeach
                     </select>
                 </div>
