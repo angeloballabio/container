@@ -34,3 +34,5 @@ Route::livewire('/operazioni', 'operazioni')->name('operazioni')->middleware('au
 Route::livewire('/genera-distinta/{id}', 'genera-distinta')->name('distinta')->middleware('auth');
 Route::livewire('/gestione-fornitori', 'gestione-fornitori')->name('fornitori')->middleware('auth');
 Route::livewire('/gestione-compagnie', 'gestione-compagnie')->name('compagnie')->middleware('auth');
+Route::livewire('/gestione-destinatari', 'gestione-destinatari')->name('destinatari')->middleware('auth');
+Route::livewire('/gestione-trasportatori', 'gestione-trasportatori')->name('trasportatori')->middleware('auth');

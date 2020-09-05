@@ -36,6 +36,16 @@ class AzioniFormdata extends Component
         return redirect(route('compagnie'));
     }
 
+    public function gestioneDestinatari()
+    {
+        return redirect(route('destinatari'));
+    }
+
+    public function gestioneTrasportatori()
+    {
+        return redirect(route('trasportatori'));
+    }
+
     public function azzeraMaschera()
     {
         return redirect()->to('/operazioni');

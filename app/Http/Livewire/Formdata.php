@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Operazione;
 use App\Fornitore;
 use App\Compagnia;
+use App\Destinatario;
+use App\Trasportatore;
 
 class Formdata extends Component
 {
@@ -133,8 +135,10 @@ class Formdata extends Component
 
     public function render()
     {
+        $trasportatori = Trasportatore::select('soprannome')->orderBy('soprannome', 'asc')->get()->all();
+        $destinatari = Destinatario::select('soprannome')->orderBy('soprannome', 'asc')->get()->all();
         $compagnie = Compagnia::select('nome')->orderBy('nome', 'asc')->get()->all();
         $fornitori = Fornitore::select('soprannome')->orderBy('soprannome', 'asc')->get()->all();
-        return view('livewire.formdata', compact('fornitori','compagnie'));
+        return view('livewire.formdata', compact('fornitori','compagnie','destinatari','trasportatori'));
     }
 }

@@ -5,12 +5,12 @@
                 <div class="col-4">
                     <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="aggiungi">Aggiungi operazione</button>
                 </div>
-                @if($fornitore_id)
+                @if($destinatario_id)
                 <div class="col-4">
                     <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="modifica()">Modifica operazione</button>
                 </div>
                 @endif
-                @if($fornitore_id)
+                @if($destinatario_id)
                 <div class="col-4">
                     <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="cancella">Cancella operazione</button>
                 </div>
@@ -81,3 +81,4 @@
         </div>
     </div>
 </div>
+
