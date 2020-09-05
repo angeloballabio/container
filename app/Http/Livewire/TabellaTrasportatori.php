@@ -17,7 +17,7 @@ class TabellaTrasportatori extends Component
     ];
 
     public function trasportatoreSelezionato($trasportatoreId){
-        $this->selezionato = $destinatarioId;
+        $this->selezionato = $trasportatoreId;
     }
 
     public function render()

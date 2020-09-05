@@ -12,9 +12,8 @@
                 </div>
                 <div class="col-7">
                     <label for="inputFornitore" class="col-4 float-left">Fornitore :</label>
-                    {{-- <input type="text" class="col-7 form-control float-left p-1"  style="height: 20px" id="inputFornitore" wire:model="fornitore"> --}}
-                    <select {{-- name="fornitore" id="fornitore" --}} class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="fornitore">
-                        {{-- <option value="0">Effettua la scelta</option> --}}
+                    <select  class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="fornitore">
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($fornitori as $fornitore)
                           <option value="{{$fornitore->soprannome}} {{ $fornitore == $fornitore->soprannome ? 'selected' : '' }}">{{$fornitore->soprannome}}</option>
                         @endforeach
@@ -31,9 +30,8 @@
             <div class="row">
                 <div class="col-7">
                     <label for="inputCompagnia" class="col-4 float-left">Compagnia navale :</label>
-                    {{-- <input type="text" class="col-7 form-control float-left p-1" style="height: 20px" id="inputCompagnia"  wire:model="compagnia_navale"> --}}
-                    <select {{-- name="fornitore" id="fornitore" --}} class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="compagnia_navale">
-                        {{-- <option value="0">Effettua la scelta</option> --}}
+                    <select  class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="compagnia_navale">
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($compagnie as $compagnia)
                           <option value="{{$compagnia->nome}} {{ $compagnia_navale == $compagnia->nome ? 'selected' : '' }}">{{$compagnia->nome}}</option>
                         @endforeach
@@ -77,9 +75,8 @@
                 </div>
                 <div class="col-7">
                     <label for="inputDestinatario" class="col-4 float-left">Destinatario :</label>
-                    {{-- <input type="text" class="col-8 float-left form-control p-1" style="height: 20px" id="inputDestinatario" wire:model="destinatario"> --}}
-                    <select class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="compagnia_navale">
-                        {{-- <option value="0">Effettua la scelta</option> --}}
+                    <select class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="destinatario">
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($destinatari as $destinatario)
                           <option value="{{$destinatario->soprannome}} {{ $destinatario == $destinatario->soprannome ? 'selected' : '' }}">{{$destinatario->soprannome}}</option>
                         @endforeach
@@ -99,9 +96,8 @@
             <div class="row">
                 <div class="col-6">
                     <label for="inputTrasportatore" class="col-4 float-left">Trasportatore :</label>
-                    {{-- <input type="text" class="col-7 form-control float-left p-1" style="height: 20px" id="inputTrasportatore" wire:model="trasportatore"> --}}
-                    <select class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="compagnia_navale">
-                        {{-- <option value="0">Effettua la scelta</option> --}}
+                    <select class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="trasportatore">
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($trasportatori as $trasportatore)
                           <option value="{{$trasportatore->soprannome}} {{ $trasportatore == $trasportatore->soprannome ? 'selected' : '' }}">{{$trasportatore->soprannome}}</option>
                         @endforeach
@@ -109,7 +105,12 @@
                 </div>
                 <div class="col-6">
                     <label for="inputConsegna" class="col-6 float-left">Luogo consegna :</label>
-                    <input type="text" class="col-5 float-left form-control p-1" style="height: 20px" id="inputConsegna" wire:model="luogo_consegna">
+                    <select class="col-5 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="luogo_consegna">
+                        <option value="0">Effettua la scelta</option>
+                        @foreach ($consegne as $consegna)
+                          <option value="{{$consegna->soprannome}} {{ $luogo_consegna == $consegna->soprannome ? 'selected' : '' }}">{{$consegna->soprannome}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>

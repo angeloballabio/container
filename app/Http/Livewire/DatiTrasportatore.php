@@ -16,7 +16,7 @@ class DatiTrasportatore extends Component
     ];
 
     public function trasportatoreSelezionato($trasportatoreId){
-        $this->traspoortatore_id = $trasportatoreId;
+        $this->trasportatore_id = $trasportatoreId;
 
         $trasportatore = Trasportatore::where('id',$this->trasportatore_id)->get()->first();
         if($trasportatore){

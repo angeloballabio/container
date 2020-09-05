@@ -28,10 +28,10 @@
                     <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneTrasportatori'>Trasportatori</button>
                 </div>
                 <div class="col-4">
-                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Luoghi di consegna</button>
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneConsegna'>Luoghi di consegna</button>
                 </div>
                 <div class="col-4">
-                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Dogane T1</button>
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneConsegna'>Dogane T1</button>
                 </div>
                 <div class="col-4">
                     <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Tipo container</button>
@@ -71,7 +71,7 @@
                 <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneTrasportatori' >Trasportatori</button>
             </div>
             <div class="col-4">
-                <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Luoghi di consegna</button>
+                <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneConsegna'>Luoghi di consegna</button>
             </div>
             <div class="col-4">
                 <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;">Dogane T1</button>
