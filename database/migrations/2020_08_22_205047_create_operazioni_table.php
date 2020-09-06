@@ -41,7 +41,7 @@ class CreateOperazioniTable extends Migration
             $table->boolean('richiede_conformita')->default(0);
             $table->boolean('richiede_cites')->default(0);
             $table->string('dogana_t1',40)->nullable();
-            $table->string('tipo_container',20)->nullable();
+            $table->string('tipo_container',40)->nullable();
             $table->string('sigillo',40)->nullable();
             $table->timestamps();
         });

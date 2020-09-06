@@ -56,6 +56,7 @@ class DatiDestinatario extends Component
         $destinatario->mail = $this->mail;
         $destinatario->piva = $this->piva;
         $destinatario->save();
+        return redirect()->to('/gestione-destinatari');
     }
 
     public function modifica()
@@ -77,14 +78,14 @@ class DatiDestinatario extends Component
         $destinatario->mail = $this->mail;
         $destinatario->piva = $this->piva;
         $destinatario->save();
-        return redirect()->to('/destinatari');
+        return redirect()->to('/gestione-destinatari');
     }
 
     public function cancella()
     {
         $destinatario = Destinatario::where('id',$this->destinatario_id)->get()->first();
         $destinatario->delete();
-        return redirect()->to('/destinatari');
+        return redirect()->to('/gestione-destinatari');
     }
 
     public function render()

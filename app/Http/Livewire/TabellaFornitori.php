@@ -16,13 +16,13 @@ class TabellaFornitori extends Component
         'FornitoreSelezionato' => 'fornitoreSelezionato',
     ];
 
-    public function fornitoreSelezionato($ordineId){
-        $this->selezionato = $ordineId;
+    public function fornitoreSelezionato($fornitoreId){
+        $this->selezionato = $fornitoreId;
     }
 
     public function render()
     {
-        $fornitori = Fornitore::orderBy('nome','asc')->paginate(17);
+        $fornitori = Fornitore::orderBy('soprannome','asc')->paginate(17);
         return view('livewire.tabella-fornitori',compact('fornitori'));
     }
 }

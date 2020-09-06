@@ -56,6 +56,7 @@ class DatiConsegna extends Component
         $consegna->mail = $this->mail;
         $consegna->piva = $this->piva;
         $consegna->save();
+        return redirect()->to('/gestione-consegna');
     }
 
     public function modifica()
@@ -77,14 +78,14 @@ class DatiConsegna extends Component
         $consegna->mail = $this->mail;
         $consegna->piva = $this->piva;
         $consegna->save();
-        return redirect()->to('/consegna');
+        return redirect()->to('/gestione-consegna');
     }
 
     public function cancella()
     {
         $consegna = Consegna::where('id',$this->consegna_id)->get()->first();
         $consegna->delete();
-        return redirect()->to('/consegna');
+        return redirect()->to('/gestione-consegna');
     }
 
     public function render()

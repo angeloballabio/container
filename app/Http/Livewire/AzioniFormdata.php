@@ -19,10 +19,30 @@ class AzioniFormdata extends Component
 
     }
 
-    public function azioneSelezionata(){
-
+    public function generaDistinta()
+    {
         $id = $this->ordine_id;
-        return redirect(route('distinta', compact('id')));
+        if($id){
+            return redirect(route('distinta', compact('id')));
+        }
+
+    }
+
+    public function generaMandati()
+    {
+        $id = $this->ordine_id;
+        if($id){
+            return redirect(route('mandati', compact('id')));
+        }
+
+    }
+
+    public function generaBollettini()
+    {
+        $id = $this->ordine_id;
+        if ($id) {
+            return redirect(route('bollettini', compact('id')));
+        }
 
     }
 
@@ -49,6 +69,21 @@ class AzioniFormdata extends Component
     public function gestioneConsegna()
     {
         return redirect(route('consegna'));
+    }
+
+    public function gestioneDogane()
+    {
+        return redirect(route('dogana'));
+    }
+
+    public function gestioneContainer()
+    {
+        return redirect(route('container'));
+    }
+
+    public function gestioneValuta()
+    {
+        return redirect(route('valuta'));
     }
 
     public function azzeraMaschera()

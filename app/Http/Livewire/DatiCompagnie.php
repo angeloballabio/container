@@ -33,26 +33,28 @@ class DatiCompagnie extends Component
         $compagnia->indirizzo_web =$this->indirizzo_web;
         $compagnia->contatto = $this->contatto;
         $compagnia->save();
+        return redirect()->to('/gestione-compagnie');
     }
 
     public function modifica()
     {
         $compagnia = Compagnia::where('id',$this->compagnia_id)->get()->first();
 
-        $compagnia = new Compagnia();
+        /* $compagnia = new Compagnia(); */
         $compagnia->nome = $this->nome;
         $compagnia->indirizzo_web =$this->indirizzo_web;
         $compagnia->contatto = $this->contatto;
         $compagnia->save();
-        return redirect()->to('/compagnie');
+        return redirect()->to('/gestione-compagnie');
     }
 
     public function cancella()
     {
         $compagnia = Compagnia::where('id',$this->compagnia_id)->get()->first();
         $compagnia->delete();
-        return redirect()->to('/compagnie');
+        return redirect()->to('/gestione-compagnie');
     }
+
     public function render()
     {
         return view('livewire.dati-compagnie');

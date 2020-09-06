@@ -56,6 +56,7 @@ class DatiFornitore extends Component
         $fornitore->mail = $this->mail;
         $fornitore->piva = $this->piva;
         $fornitore->save();
+        return redirect()->to('/gestione-fornitori');
     }
 
     public function modifica()
@@ -77,14 +78,14 @@ class DatiFornitore extends Component
         $fornitore->mail = $this->mail;
         $fornitore->piva = $this->piva;
         $fornitore->save();
-        return redirect()->to('/fornitori');
+        return redirect()->to('/gestione-fornitori');
     }
 
     public function cancella()
     {
         $fornitore = Fornitore::where('id',$this->fornitore_id)->get()->first();
         $fornitore->delete();
-        return redirect()->to('/fornitori');
+        return redirect()->to('/gestione-fornitori');
     }
 
     public function render()

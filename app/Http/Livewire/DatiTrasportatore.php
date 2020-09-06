@@ -56,6 +56,7 @@ class DatiTrasportatore extends Component
         $trasportatore->mail = $this->mail;
         $trasportatore->piva = $this->piva;
         $trasportatore->save();
+        return redirect()->to('/gestione-trasportatori');
     }
 
     public function modifica()
@@ -77,14 +78,14 @@ class DatiTrasportatore extends Component
         $trasportatore->mail = $this->mail;
         $trasportatore->piva = $this->piva;
         $trasportatore->save();
-        return redirect()->to('/destinatari');
+        return redirect()->to('/gestione-trasportatori');
     }
 
     public function cancella()
     {
         $trasportatore = Trasportatore::where('id',$this->trasportatore_id)->get()->first();
         $trasportatore->delete();
-        return redirect()->to('/destinatari');
+        return redirect()->to('/gestione-trasportatori');
     }
 
     public function render()
