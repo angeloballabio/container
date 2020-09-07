@@ -6,6 +6,13 @@ use Livewire\Component;
 
 class GeneraBollettini extends Component
 {
+    public $ordine_id = 0;
+
+    public function mount($id)
+    {
+        $this->ordine_id = $id;
+    }
+
     public function render()
     {
         return view('livewire.genera-bollettini');

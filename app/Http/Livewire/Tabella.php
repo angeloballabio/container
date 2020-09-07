@@ -24,6 +24,6 @@ class Tabella extends Component
 
     public function render()
     {
-        return view('livewire.tabella',['operazioni' => Operazione::orderBy('data_arrivo_nave','desc')->paginate(28)]);
+        return view('livewire.tabella',['operazioni' => Operazione::orderBy('data_arrivo_nave','desc')->paginate(23)]);
     }
 }

@@ -4,10 +4,11 @@
         <div class="row">
             <div class="col-sm-6 " style="border-style: solid;">
                 <livewire:tabella />
+                <livewire:azioni-formdata />
             </div>
             <div class="col-sm-6 " style="border-style: solid;">
                 <livewire:formdata />
-                <livewire:azioni-formdata />
+                {{-- <livewire:azioni-formdata /> --}}
         </div>
     </div>
 </div>

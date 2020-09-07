@@ -9,10 +9,8 @@ class GeneraDistinta extends Component
 {
     public $ordine_id = 0;
 
-
     public function mount($id)
     {
-
         $this->ordine_id = $id;
     }
 

@@ -45,6 +45,8 @@ $factory->define(Operazione::class, function (Faker $faker) {
         'richiede_conformita' => $faker->boolean,
         'richiede_cites' => $faker->boolean,
         'dogana_t1' => $faker->company,
+        'dogana_sdoganamento' => $faker->company,
+        'magazzino' => $consegna ,
         'tipo_container' => $faker->randomElement($array = array('20','40HQ','40')),
         'sigillo' => $faker->unique()->bothify('???#####'),
     ];

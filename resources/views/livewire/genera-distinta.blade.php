@@ -32,7 +32,7 @@
                     <input type="text" class="col-6 float-left form-control p-1" style="height: 20px" value="{{ $operazione->lordo_obl }}" readonly>
                 </div>
                 <div class="col-3">
-
+                    id operazione :{{ $operazione->id }}
                 </div>
                 <div class="col-3">
                     <label for="container" class="col-5 float-left">Totale colli distinta :</label>
@@ -114,13 +114,15 @@
         @endif
         <div class="row">
             <div class="col-sm-8 " style="border-style: solid; height: 400px;">
-                <livewire:elenco-articoli />
+                {{-- <livewire:elenco-articoli /> --}}
+                @livewire('elenco-articoli',['id' => $operazione->id])
             </div>
             <div class="col-sm-4 " style="border-style: solid; height: 400px;">
                 <livewire:elenco-pezzi />
             </div>
             <div class="col-sm-8 " style="border-style: solid; height: 310px;">
-                <livewire:dati-articolo />
+                {{-- <livewire:dati-articolo :id = "$operazione->id"> --}}
+                @livewire('dati-articolo',['id' => $operazione->id])
             </div>
             <div class="col-sm-4 " style="border-style: solid; height: 310px;">
                 <livewire:dati-pezzi />

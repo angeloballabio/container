@@ -31,7 +31,7 @@ class CreateOperazioniTable extends Migration
             $table->date('data_carico')->nullable();
             $table->string('destinatario_obl',10)->nullable();
             $table->string('trasportatore',10)->nullable();
-            $table->string('consegna',10)->nullable();
+            $table->string('consegna',20)->nullable();
             $table->date('data_pratica')->nullable();
             $table->decimal('totale_diritti',16,3)->default(0.000);
             $table->decimal('totale_iva',16,3)->default(0.000);
@@ -41,6 +41,8 @@ class CreateOperazioniTable extends Migration
             $table->boolean('richiede_conformita')->default(0);
             $table->boolean('richiede_cites')->default(0);
             $table->string('dogana_t1',40)->nullable();
+            $table->string('dogana_sdoganamento',40)->nullable();
+            $table->string('magazzino',20)->nullable();
             $table->string('tipo_container',40)->nullable();
             $table->string('sigillo',40)->nullable();
             $table->timestamps();

@@ -16,7 +16,7 @@ use App\Valuta;
 class Formdata extends Component
 {
     public $ordine_id;
-    public $fattura_nr, $data_fattura, $fornitore, $valuta, $compagnia_navale, $data_attivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1;
+    public $fattura_nr, $data_fattura, $fornitore, $valuta, $compagnia_navale, $data_attivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $dogana_sdoganamento, $luogo_sdoganamento;
 
 
     protected $listeners = [
@@ -54,6 +54,8 @@ class Formdata extends Component
             $this->age = $operazione->richiede_conformita == 1 ? 'true':'';
             $this->cites = $operazione->richiede_cites == 1 ? 'true':'';
             $this->dogana_t1 = $operazione->dogana_t1;
+            $this->dogana_sdoganamento = $operazione->dogana_sdoganamento;
+            $this->luogo_sdoganamento = $operazione->magazzino;
             $this->tipo_container = $operazione->tipo_container;
             $this->sigillo = $operazione->sigillo;
         }
@@ -89,6 +91,8 @@ class Formdata extends Component
         $operazione->richiede_conformita = $this->age == true ? '1':'0';
         $operazione->richiede_cites = $this->cites == true ? '1':'0';
         $operazione->dogana_t1 = $this->dogana_t1;
+        $operazione->dogana_sdoganamento = $this->dogana_sdoganamento;
+        $operazione->magazzino = $this->luogo_sdoganamento;
         $operazione->tipo_container = $this->tipo_container;
         $operazione->sigillo = $this->sigillo;
         $operazione->save();
@@ -124,6 +128,8 @@ class Formdata extends Component
         $operazione->richiede_conformita = $this->age == true ? '1':'0';
         $operazione->richiede_cites = $this->cites == true ? '1':'0';
         $operazione->dogana_t1 = $this->dogana_t1;
+        $operazione->dogana_sdoganamento = $this->dogana_sdoganamento;
+        $operazione->magazzino = $this->luogo_sdoganamento;
         $operazione->tipo_container = $this->tipo_container;
         $operazione->sigillo = $this->sigillo;
         $operazione->save();

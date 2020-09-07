@@ -21,7 +21,6 @@
                 </div>
                 <div class="col-5">
                     <label for="inputValuta" class="col-5 float-left">Valuta :</label>
-                    {{-- <input type="text" class="col-6 float-left form-control p-1" style="height: 20px" id="inputValuta" wire:model="valuta"> --}}
                     <select  class="col-6 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="valuta">
                         <option value="0">Effettua la scelta</option>
                         @foreach ($valute as $valuta)
@@ -90,7 +89,6 @@
                 </div>
                 <div class="col-6">
                     <label for="inputTipoContainer" class="col-4 float-left">Tipo container :</label>
-                    {{-- <input type="text" class="col-6 form-control float-left p-1" style="height: 20px" id="inputTipoContainer" wire:model="tipo_container"> --}}
                     <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="tipo_container">
                         <option value="0">Effettua la scelta</option>
                         @foreach ($containers as $container)
@@ -166,7 +164,6 @@
                 </div>
                 <div class="col-11">
                     <label for="inputDoganaT1" class="col-3 float-left">Dogana per T1 :</label>
-                    {{-- <input type="text" class="col-9 float-left form-control p-1" style="height: 20px" id="inputDoganaT1" wire:model="dogana_t1"> --}}
                     <select class="col-9 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="dogana_t1">
                         <option value="0">Effettua la scelta</option>
                         @foreach ($dogane as $dogana)
@@ -174,7 +171,24 @@
                         @endforeach
                     </select>
                 </div>
-
+                <div class="col-11">
+                    <label for="inputDoganaSdoganamento" class="col-3 float-left">Dogana sdoganamento :</label>
+                    <select class="col-9 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="dogana_sdoganamento">
+                        <option value="0">Effettua la scelta</option>
+                        @foreach ($dogane as $dogana)
+                          <option value="{{$dogana->soprannome}} {{ $dogana_sdoganamento == $dogana->soprannome ? 'selected' : '' }}">{{$dogana->soprannome}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label for="inputConsegna" class="col-6 float-left">Luogo sdoganamento :</label>
+                    <select class="col-5 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="luogo_sdoganamento">
+                        <option value="0">Effettua la scelta</option>
+                        @foreach ($consegne as $consegna)
+                          <option value="{{$consegna->soprannome}} {{ $luogo_sdoganamento == $consegna->soprannome ? 'selected' : '' }}">{{$consegna->soprannome}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
         </div>
         <div class="shadow p-2 mb-2 bg-white rounded">
