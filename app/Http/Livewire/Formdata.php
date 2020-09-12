@@ -16,7 +16,7 @@ use App\Valuta;
 class Formdata extends Component
 {
     public $ordine_id;
-    public $fattura_nr, $data_fattura, $fornitore, $valuta, $compagnia_navale, $data_attivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $dogana_sdoganamento, $luogo_sdoganamento;
+    public $fattura_nr, $data_fattura, $fornitore, $valuta, $compagnia_navale, $data_attivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $allegati, $dogana_sdoganamento, $luogo_sdoganamento;
 
 
     protected $listeners = [
@@ -58,6 +58,7 @@ class Formdata extends Component
             $this->luogo_sdoganamento = $operazione->magazzino;
             $this->tipo_container = $operazione->tipo_container;
             $this->sigillo = $operazione->sigillo;
+            $this->allegati = $operazione->allegati;
         }
 
     }
@@ -95,6 +96,7 @@ class Formdata extends Component
         $operazione->magazzino = $this->luogo_sdoganamento;
         $operazione->tipo_container = $this->tipo_container;
         $operazione->sigillo = $this->sigillo;
+        $operazione->allegati = $this->allegati;
         $operazione->save();
     }
 
@@ -132,6 +134,7 @@ class Formdata extends Component
         $operazione->magazzino = $this->luogo_sdoganamento;
         $operazione->tipo_container = $this->tipo_container;
         $operazione->sigillo = $this->sigillo;
+        $operazione->allegati = $this->allegati;
         $operazione->save();
         return redirect()->to('/operazioni');
     }
@@ -154,5 +157,102 @@ class Formdata extends Component
         $compagnie = Compagnia::select('nome')->orderBy('nome', 'asc')->get()->all();
         $fornitori = Fornitore::select('soprannome')->orderBy('soprannome', 'asc')->get()->all();
         return view('livewire.formdata', compact('fornitori','compagnie','destinatari','trasportatori','consegne', 'dogane','containers', 'valute'));
+    }
+
+    public function bl()
+    {
+        if(! str_contains($this->allegati, 'B/L')){
+            $dato = $this->allegati;
+            if($dato !== ''){
+                $this->allegati = $dato.', B/L';
+            } else {
+                $this->allegati = 'B/L';
+            }
+
+        }
+    }
+
+    public function fattura()
+    {
+        if(! str_contains($this->allegati, 'Fattura')){
+            $dato = $this->allegati;
+            if ($dato !== '') {
+                $this->allegati = $dato.', Fattura';
+            } else {
+                $this->allegati = 'Fattura';
+            }
+        }
+    }
+
+    public function pkl()
+    {
+        if(! str_contains($this->allegati, 'Pkl')){
+            $dato = $this->allegati;
+            if ($dato !== '') {
+                $this->allegati = $dato.', Pkl';
+            } else {
+                $this->allegati = 'Pkl';
+            }
+        }
+    }
+
+    public function conferma_ordine()
+    {
+        if(! str_contains($this->allegati, 'Conferma ordine')){
+            $dato = $this->allegati;
+            if ($dato !== '') {
+                $this->allegati = $dato.', Conferma ordine';
+            } else {
+                $this->allegati = 'Conferma ordine';
+            }
+        }
+    }
+
+    public function distinta()
+    {
+        if(! str_contains($this->allegati, 'Distinta')){
+            $dato = $this->allegati;
+            if ($dato !== '') {
+                $this->allegati = $dato.', Distinta';
+            } else {
+                $this->allegati = 'Distinta';
+            }
+        }
+    }
+
+    public function delega()
+    {
+        if(! str_contains($this->allegati, 'Delega')){
+            $dato = $this->allegati;
+            if ($dato !== '') {
+                $this->allegati = $dato.', Delega';
+            } else {
+                $this->allegati = 'Delega';
+            }
+        }
+    }
+
+    public function dichiarazione_conformita()
+    {
+        if(! str_contains($this->allegati, 'Dichiarazione conformita')){
+            $dato = $this->allegati;
+            if ($dato !== '') {
+                $this->allegati = $dato.', Dichiarazione conformita';
+            } else {
+                $this->allegati = 'Dichiarazione conformita';
+            }
+        }
+    }
+
+    public function elenco_sanitari()
+    {
+        if(! str_contains($this->allegati, 'Elenco sanitari')){
+            $dato = $this->allegati;
+            if ($dato !== '') {
+                $this->allegati = $dato.', Elenco sanitari';
+            } else {
+                $this->allegati = 'Elenco sanitari';
+            }
+        }
     }
 }

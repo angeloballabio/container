@@ -171,9 +171,9 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-11">
-                    <label for="inputDoganaSdoganamento" class="col-3 float-left">Dogana sdoganamento :</label>
-                    <select class="col-9 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="dogana_sdoganamento">
+                <div class="col-6">
+                    <label for="inputDoganaSdoganamento" class="col-6 float-left">Dogana sdoganamento :</label>
+                    <select class="col-6 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="dogana_sdoganamento">
                         <option value="0">Effettua la scelta</option>
                         @foreach ($dogane as $dogana)
                           <option value="{{$dogana->soprannome}} {{ $dogana_sdoganamento == $dogana->soprannome ? 'selected' : '' }}">{{$dogana->soprannome}}</option>
@@ -190,6 +190,39 @@
                     </select>
                 </div>
             </div>
+        </div>
+        <div class="shadow p-2 mb-2 bg-white rounded">
+            <div class="row">
+                <div class="col-12">
+                    <label for="inputConsegna" class="col-3 float-left">Documenti allegati :</label>
+                    <input type="text" class="col-9 float-left form-control p-1" style="height: 20px" id="inputSigillo" wire:model="allegati">
+                </div>
+                <div class="col-2">
+                        <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="bl">B/L</button>
+                </div>
+                <div class="col-2">
+                        <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="fattura">Fattura</button>
+                </div>
+                <div class="col-2">
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="pkl">Pkl</button>
+                </div>
+                <div class="col-2">
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="conferma_ordine">Con. ord.</button>
+                </div>
+                <div class="col-2">
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="distinta">Distinta</button>
+                </div>
+                <div class="col-2">
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="delega">Delega</button>
+                </div>
+                <div class="col-2">
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="dichiarazione_conformita">Dic. conf.</button>
+                </div>
+                <div class="col-2">
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="elenco_sanitari">El. sanit.</button>
+                </div>
+            </div>
+
         </div>
         <div class="shadow p-2 mb-2 bg-white rounded">
             <div class="row">

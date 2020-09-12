@@ -6,10 +6,10 @@
                     <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="generaDistinta" >Genera distinta</button>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="generaMandati">Genera mandati</button>
+                    <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="generaMandati">Genera mandato</button>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="generaBollettini">Genera bollettini</button>
+                    <button class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="generaBollettini">Genera bollettino</button>
                 </div>
                 <div class="col-4">
                     <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click="azzeraMaschera">Azzera maschera</button>

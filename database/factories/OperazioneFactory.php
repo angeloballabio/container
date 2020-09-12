@@ -49,5 +49,6 @@ $factory->define(Operazione::class, function (Faker $faker) {
         'magazzino' => $consegna ,
         'tipo_container' => $faker->randomElement($array = array('20','40HQ','40')),
         'sigillo' => $faker->unique()->bothify('???#####'),
+        'allegati' => 'B/L Fattura Distinta PKL Documento conformita Elenco sanitari'
     ];
 });

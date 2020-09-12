@@ -45,6 +45,7 @@ class CreateOperazioniTable extends Migration
             $table->string('magazzino',20)->nullable();
             $table->string('tipo_container',40)->nullable();
             $table->string('sigillo',40)->nullable();
+            $table->string('allegati',255)->nullable();
             $table->timestamps();
         });
     }
