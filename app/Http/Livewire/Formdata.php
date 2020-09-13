@@ -12,15 +12,45 @@ use App\Consegna;
 use App\Dogana;
 use App\TipoContainer;
 use App\Valuta;
+/* use Illuminate\Validation\Rule; */
 
 class Formdata extends Component
 {
     public $ordine_id;
-    public $fattura_nr, $data_fattura, $fornitore, $valuta, $compagnia_navale, $data_attivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $allegati, $dogana_sdoganamento, $luogo_sdoganamento;
+    public $fattura_nr, $data_fattura, $fornitore, $valuta, $compagnia_navale, $data_arrivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $allegati, $dogana_sdoganamento, $luogo_sdoganamento;
 
 
     protected $listeners = [
         'OrdineSelezionato' => 'ordineSelezionato',
+    ];
+
+    protected $rules = [
+        'fattura_nr' => 'required|string|max:40',
+        'data_fattura' => 'required|date',
+        'fornitore' => 'required|string|max:40',
+        'valuta' => 'required|string|max:4',
+        'compagnia_navale' => 'required|string|max:40',
+        'data_arrivo_nave' => 'required|date',
+        'nome_nave' => 'required|string|max:90',
+        'numero_obl' => 'required|string|max:40',
+        'container_nr' => 'required|string|max:40',
+        'cartoni' => 'required|numeric|integer',
+        'lordo' => 'required|numeric',
+        'cubatura' => 'required|numeric|integer',
+        'data_carico' => 'required|date',
+        'destinatario' => 'required|string|max:10',
+        'tipo_container' => 'required|string|max:40',
+        'sigillo' => 'required|string|max:40',
+        'trasportatore' => 'required|string|max:10',
+        'luogo_consegna' => 'required|string|max:20',
+        'pratica_nr' => 'required|string|max:40',
+        'data_pratica' => 'required|date',
+        'tot_diritti' => 'required|numeric',
+        'tot_iva' => 'required|numeric',
+        'dogana_t1' => 'required|string|max:40',
+        'allegati' => 'required|string|max:255',
+        'dogana_sdoganamento' => 'required|string|max:40',
+        'luogo_sdoganamento' => 'required|string|max:20',
     ];
 
     public function ordineSelezionato($ordineId){
@@ -34,7 +64,7 @@ class Formdata extends Component
             $this->valuta = $operazione->valuta;
             $this->pratica_nr = $operazione->numero_pratica;
             $this->compagnia_navale = $operazione->compagnia_aeronavale;
-            $this->data_attivo_nave = $operazione->data_arrivo_nave;
+            $this->data_arrivo_nave = $operazione->data_arrivo_nave;
             $this->nome_nave = $operazione->nome_nave;
             $this->numero_obl = $operazione->numero_obl;
             $this->container_nr = $operazione->container_nr;
@@ -65,43 +95,49 @@ class Formdata extends Component
 
     public function aggiungi()
     {
-        $operazione = new Operazione();
-        $operazione->nr_fattura = $this->fattura_nr;
-        $operazione->data_fattura =$this->data_fattura;
-        $operazione->nome_fornitore = $this->fornitore;
-        $operazione->valuta = $this->valuta;
-        $operazione->numero_pratica = $this->pratica_nr;
-        $operazione->compagnia_aeronavale = $this->compagnia_navale;
-        $operazione->data_arrivo_nave = $this->data_attivo_nave;
-        $operazione->nome_nave = $this->nome_nave;
-        $operazione->numero_obl = $this->numero_obl;
-        $operazione->container_nr = $this->container_nr;
-        $operazione->cartoni = $this->cartoni;
-        $operazione->lordo_obl = $this->lordo;
-        $operazione->cubatura = $this->cubatura;
-        $operazione->data_carico = $this->data_carico;
-        $operazione->destinatario_obl = $this->destinatario;
-        $operazione->trasportatore = $this->trasportatore;
-        $operazione->consegna = $this->luogo_consegna;
-        $operazione->data_pratica = $this->data_pratica;
-        $operazione->totale_diritti = $this->tot_diritti;
-        $operazione->totale_iva = $this->tot_iva;
-        $operazione->richiede_sanitari = $this->sanitario == true ? '1':'0';
-        $operazione->numero_sanitari = $this->nr_sanitari;
-        $operazione->richiede_ce = $this->ce == true ? '1':'0';
-        $operazione->richiede_conformita = $this->age == true ? '1':'0';
-        $operazione->richiede_cites = $this->cites == true ? '1':'0';
-        $operazione->dogana_t1 = $this->dogana_t1;
-        $operazione->dogana_sdoganamento = $this->dogana_sdoganamento;
-        $operazione->magazzino = $this->luogo_sdoganamento;
-        $operazione->tipo_container = $this->tipo_container;
-        $operazione->sigillo = $this->sigillo;
-        $operazione->allegati = $this->allegati;
-        $operazione->save();
+        $this->validate($this->rules);
+
+        Operazione::create([
+            'nr_fattura' => $this->fattura_nr,
+            'data_fattura' => $this->data_fattura,
+            'nome_fornitore' => $this->fornitore,
+            'valuta' => $this->valuta,
+            'numero_pratica' => $this->pratica_nr,
+            'compagnia_aeronavale' => $this->compagnia_navale,
+            'data_arrivo_nave' => $this->data_arrivo_nave,
+            'nome_nave' => $this->nome_nave,
+            'numero_obl' => $this->numero_obl,
+            'container_nr' => $this->container_nr,
+            'cartoni' => $this->cartoni,
+            'lordo_obl' => $this->lordo,
+            'cubatura' => $this->cubatura,
+            'data_carico' => $this->data_carico,
+            'destinatario_obl' => $this->destinatario,
+            'trasportatore' => $this->trasportatore,
+            'consegna' => $this->luogo_consegna,
+            'data_pratica' => $this->data_pratica,
+            'totale_diritti' => $this->tot_diritti,
+            'totale_iva' => $this->tot_iva,
+            'richiede_sanitari' => $this->sanitario == true ? '1':'0',
+            'numero_sanitari' => $this->nr_sanitari,
+            'richiede_ce' => $this->ce == true ? '1':'0',
+            'richiede_conformita' => $this->age == true ? '1':'0',
+            'richiede_cites' => $this->cites == true ? '1':'0',
+            'dogana_t1' => $this->dogana_t1,
+            'dogana_sdoganamento' => $this->dogana_sdoganamento,
+            'magazzino' => $this->luogo_sdoganamento,
+            'tipo_container' => $this->tipo_container,
+            'sigillo' => $this->sigillo,
+            'allegati' => $this->allegati,
+        ]);
+        return redirect()->to('/operazioni');
+
     }
 
     public function modifica()
     {
+        $this->validate($this->rules);
+
         $operazione = Operazione::where('id',$this->ordine_id)->get()->first();
 
         $operazione->nr_fattura = $this->fattura_nr;
@@ -110,7 +146,7 @@ class Formdata extends Component
         $operazione->valuta = $this->valuta;
         $operazione->numero_pratica = $this->pratica_nr;
         $operazione->compagnia_aeronavale = $this->compagnia_navale;
-        $operazione->data_arrivo_nave = $this->data_attivo_nave;
+        $operazione->data_arrivo_nave = $this->data_arrivo_nave;
         $operazione->nome_nave = $this->nome_nave;
         $operazione->numero_obl = $this->numero_obl;
         $operazione->container_nr = $this->container_nr;
