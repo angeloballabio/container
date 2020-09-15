@@ -14,6 +14,12 @@ class DatiCompagnie extends Component
         'CompagniaSelezionato' => 'compagniaSelezionato',
     ];
 
+    protected $rules = [
+        'nome' => 'required|string|max:255',
+        'indirizzo_web' => 'required|string|max:255',
+        'contatto' => 'nullable|string|max:128',
+    ];
+
     public function compagniaSelezionato($compagniaId){
         $this->compagnia_id = $compagniaId;
 
@@ -28,6 +34,8 @@ class DatiCompagnie extends Component
 
     public function aggiungi()
     {
+        $this->validate($this->rules);
+
         $compagnia = new Compagnia();
         $compagnia->nome = $this->nome;
         $compagnia->indirizzo_web =$this->indirizzo_web;
@@ -38,6 +46,8 @@ class DatiCompagnie extends Component
 
     public function modifica()
     {
+        $this->validate($this->rules);
+
         $compagnia = Compagnia::where('id',$this->compagnia_id)->get()->first();
 
         /* $compagnia = new Compagnia(); */

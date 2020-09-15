@@ -14,6 +14,10 @@ class DatiContainer extends Component
         'ContainerSelezionato' => 'containerSelezionato',
     ];
 
+    protected $rules = [
+        'tipo' => 'required|string|max:40',
+    ];
+
     public function containerSelezionato($containerId){
         $this->container_id = $containerId;
 
@@ -25,6 +29,7 @@ class DatiContainer extends Component
 
     public function aggiungi()
     {
+        $this->validate($this->rules);
         $container = new TipoContainer();
         $container->tipo = $this->tipo;
         $container->save();
@@ -33,6 +38,7 @@ class DatiContainer extends Component
 
     public function modifica()
     {
+        $this->validate($this->rules);
         $container = TipoContainer::where('id',$this->container_id)->get()->first();
 
         /* $container = new Container(); */

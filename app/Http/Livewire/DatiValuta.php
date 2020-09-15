@@ -14,6 +14,10 @@ class DatiValuta extends Component
         'ValutaSelezionato' => 'valutaSelezionato',
     ];
 
+    protected $rules = [
+        'valuta' => 'required|string|max:4'
+    ];
+
     public function valutaSelezionato($valutaId){
         $this->valuta_id = $valutaId;
 
@@ -25,6 +29,8 @@ class DatiValuta extends Component
 
     public function aggiungi()
     {
+        $this->validate($this->rules);
+
         $valuta = new Valuta();
         $valuta->iso = $this->valuta;
         $valuta->save();
@@ -33,6 +39,8 @@ class DatiValuta extends Component
 
     public function modifica()
     {
+        $this->validate($this->rules);
+
         $valuta = Valuta::where('id',$this->valuta_id)->get()->first();
 
         /* $valuta = new valuta(); */

@@ -15,6 +15,23 @@ class DatiConsegna extends Component
         'ConsegnaSelezionato' => 'consegnaSelezionato',
     ];
 
+    protected $rules = [
+        'soprannome' => 'required|string|max:40',
+        'nome' => 'required|string|max:255',
+        'indirizzo' => 'required|string|max:255',
+        'cap' => 'required|string|max:20',
+        'luogo' => 'required|string|max:128',
+        'provincia' => 'required|string|max:3',
+        'numero' => 'required|string|max:5',
+        'stato' => 'required|string|max:100',
+        'telefono1' => 'required|string|max:30',
+        'telefono2' => 'nullable|string|max30',
+        'mobile' => 'nullable|string|max:30',
+        'fax' => 'nullable|string|max:30',
+        'mail' => 'required|email',
+        'piva' => 'required|string|max:20',
+    ];
+
     public function consegnaSelezionato($consegnaId){
         $this->consegna_id = $consegnaId;
 
@@ -40,6 +57,8 @@ class DatiConsegna extends Component
 
     public function aggiungi()
     {
+        $this->validate($this->rules);
+
         $consegna = new Consegna();
         $consegna->soprannome = $this->soprannome;
         $consegna->nome =$this->nome;
@@ -61,6 +80,7 @@ class DatiConsegna extends Component
 
     public function modifica()
     {
+        $this->validate($this->rules);
         $consegna = Consegna::where('id',$this->consegna_id)->get()->first();
 
         $consegna->soprannome = $this->soprannome;

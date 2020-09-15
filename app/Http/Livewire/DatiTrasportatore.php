@@ -15,6 +15,23 @@ class DatiTrasportatore extends Component
         'TrasportatoreSelezionato' => 'trasportatoreSelezionato',
     ];
 
+    protected $rules = [
+        'soprannome' => 'required|string|max:40',
+        'nome' => 'required|string|max:255',
+        'indirizzo' => 'required|string|max:255',
+        'cap' => 'required|string|max:20',
+        'luogo' => 'required|string|max:128',
+        'provincia' => 'required|string|max:3',
+        'numero' => 'required|string|max:5',
+        'stato' => 'required|string|max:100',
+        'telefono1' => 'required|string|max:30',
+        'telefono2' => 'nullable|string|max30',
+        'mobile' => 'nullable|string|max:30',
+        'fax' => 'nullable|string|max:30',
+        'mail' => 'required|email',
+        'piva' => 'required|string|max:20',
+    ];
+
     public function trasportatoreSelezionato($trasportatoreId){
         $this->trasportatore_id = $trasportatoreId;
 
@@ -40,6 +57,8 @@ class DatiTrasportatore extends Component
 
     public function aggiungi()
     {
+        $this->validate($this->rules);
+
         $trasportatore = new Trasportatore();
         $trasportatore->soprannome = $this->soprannome;
         $trasportatore->nome =$this->nome;
@@ -61,6 +80,8 @@ class DatiTrasportatore extends Component
 
     public function modifica()
     {
+        $this->validate($this->rules);
+
         $trasportatore = Trasportatore::where('id',$this->trasportatore_id)->get()->first();
 
         $trasportatore->soprannome = $this->soprannome;

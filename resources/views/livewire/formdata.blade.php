@@ -5,32 +5,33 @@
                 <div class="col-7">
                     <label for="inputFattura" class="col-4 float-left">Fattura numero :</label>
                     <input type="text" class="col-7 form-control float-left p-1" style="height: 20px" id="inputFattura"   wire:model="fattura_nr">
-                    @error('fattura_nr') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('fattura_nr') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-5">
-                    <label for="inputData" class="col-5 float-left">Data fattura :</label>
-                    <input type="date" class="col-6 float-left form-control p-1"  style="height: 20px"id="inputData" wire:model="data_fattura">
-                    @error('data_fattura') <span style="color: red">{{ $message }}</span> @enderror
+                    <label for="inputData" class="col-4 float-left">Data fattura</label>
+                    <input type="date" class="col-7 float-left form-control p-1"  style="height: 20px"id="inputData" wire:model="data_fattura">
+                    @error('data_fattura') <span style="color: red"><br>{{ $message }}</span> @enderror
+
                 </div>
                 <div class="col-7">
                     <label for="inputFornitore" class="col-4 float-left">Fornitore :</label>
-                    <select  class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="fornitore">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                    <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="fornitore">
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($fornitori as $fornitore)
                           <option value="{{$fornitore->soprannome}} {{ $fornitore == $fornitore->soprannome ? 'selected' : '' }}">{{$fornitore->soprannome}}</option>
                         @endforeach
                     </select>
-                    @error('fornitore') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('fornitore') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-5">
-                    <label for="inputValuta" class="col-5 float-left">Valuta :</label>
-                    <select  class="col-6 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="valuta">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                    <label for="inputValuta" class="col-4 float-left">Valuta :</label>
+                    <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="valuta">
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($valute as $valuta)
                           <option value="{{$valuta->iso}} {{ $valuta == $valuta->iso ? 'selected' : '' }}">{{$valuta->iso}}</option>
                         @endforeach
                     </select>
-                    @error('valuta') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('valuta') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
             </div>
 
@@ -39,23 +40,23 @@
             <div class="row">
                 <div class="col-7">
                     <label for="inputCompagnia" class="col-4 float-left">Compagnia navale :</label>
-                    <select  class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="compagnia_navale">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                    <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="compagnia_navale">
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($compagnie as $compagnia)
                           <option value="{{$compagnia->nome}} {{ $compagnia_navale == $compagnia->nome ? 'selected' : '' }}">{{$compagnia->nome}}</option>
                         @endforeach
                     </select>
-                    @error('compagnia_navale') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('compagnia_navale') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-5">
-                    <label for="inputDataArrivo" class="col-6 float-left">Data arrivo nave :</label>
-                    <input type="date" class="col-5 float-left form-control p-1" style="height: 20px" id="inputDataArrivo"  wire:model="data_arrivo_nave">
-                    @error('data:_arrivo_nave') <span style="color: red">{{ $message }}</span> @enderror
+                    <label for="inputDataArrivo" class="col-4 float-left">Data arrivo:</label>
+                    <input type="date" class="col-8 float-left form-control p-1" style="height: 20px" id="inputDataArrivo"  wire:model="data_arrivo_nave">
+                    @error('data_arrivo_nave') <span style="color: red;">{{ $message }}</span> @enderror
                 </div>
                 <div class="col-7">
                     <label for="inputNomeNave" class="col-4 float-left">Nome nave :</label>
                     <input type="text" class="col-7 form-control float-left p-1" style="height: 20px" id="inputNomeNave" wire:model="nome_nave">
-                    @error('nome_nave') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('nome_nave') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
             </div>
         </div>
@@ -64,32 +65,32 @@
                 <div class="col-7">
                     <label for="inputOBL" class="col-5 float-left">Numero OBL/AWB :</label>
                     <input type="text" class="col-6 form-control float-left p-1" style="height: 20px" id="inputOBL" wire:model="numero_obl">
-                    @error('numero_obl') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('numero_obl') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-5">
                     <label for="inputContainer" class="col-6 float-left">Container n° :</label>
                     <input type="text" class="col-5 float-left form-control p-1" style="height: 20px" id="inputContainer" wire:model="container_nr">
-                    @error('container_nr') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('container_nr') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-4">
                     <label for="inputCartoni" class="col-7 float-left">Numero cartoni :</label>
                     <input type="number" class="col-5 form-control float-left p-1" style="height: 20px" id="inputCartoni" wire:model="cartoni">
-                    @error('cartoni') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('cartoni') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-4">
                     <label for="inputLordo" class="col-5 float-left">Peso lordo :</label>
                     <input type="number" class="col-6 float-left form-control" style="height: 20px" id="inputLordo" wire:model="lordo">
-                    @error('lordo') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('lordo') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-4">
                     <label for="inputCubatura" class="col-5 float-left">Cubatura :</label>
                     <input type="number" class="col-6 float-left form-control" style="height: 20px" id="inputCubatura" wire:model="cubatura">
-                    @error('cubatura') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('cubatura') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-5">
                     <label for="inputDataCarico" class="col-5 float-left">Data carico :</label>
                     <input type="date" class="col-6 form-control float-left p-1" style="height: 20px" id="inputDataCarico" wire:model="data_carico">
-                    @error('data_carico') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('data_carico') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-7">
                     <label for="inputDestinatario" class="col-4 float-left">Destinatario :</label>
@@ -99,22 +100,22 @@
                           <option value="{{$destinatario->soprannome}} {{ $destinatario == $destinatario->soprannome ? 'selected' : '' }}">{{$destinatario->soprannome}}</option>
                         @endforeach
                     </select>
-                    @error('destinatario') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('destinatario') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-6">
                     <label for="inputTipoContainer" class="col-4 float-left">Tipo container :</label>
                     <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="tipo_container">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($containers as $container)
                           <option value="{{$container->tipo}} {{ $tipo_container == $container->tipo ? 'selected' : '' }}">{{$container->tipo}}</option>
                         @endforeach
                     </select>
-                    @error('tipo_container') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('tipo_container') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-6">
                     <label for="inputSigillo" class="col-4 float-left">Sigillo :</label>
                     <input type="text" class="col-8 float-left form-control p-1" style="height: 20px" id="inputSigillo" wire:model="sigillo">
-                    @error('sigillo') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('sigillo') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
             </div>
         </div>
@@ -123,22 +124,22 @@
                 <div class="col-6">
                     <label for="inputTrasportatore" class="col-4 float-left">Trasportatore :</label>
                     <select class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="trasportatore">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($trasportatori as $trasportatore)
                           <option value="{{$trasportatore->soprannome}} {{ $trasportatore == $trasportatore->soprannome ? 'selected' : '' }}">{{$trasportatore->soprannome}}</option>
                         @endforeach
                     </select>
-                    @error('trasportatore') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('trasportatore') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-6">
                     <label for="inputConsegna" class="col-6 float-left">Luogo consegna :</label>
                     <select class="col-5 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="luogo_consegna">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($consegne as $consegna)
                           <option value="{{$consegna->soprannome}} {{ $luogo_consegna == $consegna->soprannome ? 'selected' : '' }}">{{$consegna->soprannome}}</option>
                         @endforeach
                     </select>
-                    @error('luogo_consegna') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('luogo_consegna') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
             </div>
         </div>
@@ -147,22 +148,22 @@
                 <div class="col-7">
                     <label for="inputPratica" class="col-5 float-left">Numero pratica :</label>
                     <input type="text" class="col-6 form-control float-left p-1" style="height: 20px" id="inputPratica" wire:model="pratica_nr">
-                    @error('pratica_nr') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('pratica_nr') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-5">
                     <label for="inputDataPratica" class="col-6 float-left">Data pratica :</label>
                     <input type="date" class="col-5 float-left form-control p-1" style="height: 20px" id="inputDataPratica" wire:model="data_pratica">
-                    @error('data_pratica') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('data_pratica') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-6">
                     <label for="inputDiritti" class="col-5 float-left">Tot diritti doganali :</label>
                     <input type="number" class="col-7 form-control float-left p-1" style="height: 20px" id="inputDiritti" wire:model="tot_diritti">
-                    @error('tot_diritti') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('tot_diritti') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-6">
                     <label for="inputLordo" class="col-5 float-left">Tot iva :</label>
                     <input type="number" class="col-7 float-left form-control" style="height: 20px" id="inputLordo" wire:model="tot_iva">
-                    @error('tot_iva') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('tot_iva') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-2">
                     <label for="inputSanitario" class="col-10 float-left">Sanitario :</label>
@@ -187,27 +188,27 @@
                 <div class="col-11">
                     <label for="inputDoganaT1" class="col-3 float-left">Dogana per T1 :</label>
                     <select class="col-9 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="dogana_t1">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($dogane as $dogana)
                           <option value="{{$dogana->soprannome}} {{ $dogana_t1 == $dogana->soprannome ? 'selected' : '' }}">{{$dogana->soprannome}}</option>
                         @endforeach
                     </select>
-                    @error('dogana_t1') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('dogana_t1') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-6">
                     <label for="inputDoganaSdoganamento" class="col-6 float-left">Dogana sdoganamento :</label>
                     <select class="col-6 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="dogana_sdoganamento">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($dogane as $dogana)
                           <option value="{{$dogana->soprannome}} {{ $dogana_sdoganamento == $dogana->soprannome ? 'selected' : '' }}">{{$dogana->soprannome}}</option>
                         @endforeach
                     </select>
-                    @error('dogana sdoganamento') <span style="color: red">{{ $message }}</span> @enderror
+                    @error('dogana sdoganamento') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
                 <div class="col-6">
                     <label for="inputConsegna" class="col-6 float-left">Luogo sdoganamento :</label>
                     <select class="col-5 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="luogo_sdoganamento">
-                        <option value="0">{{-- Effettua la scelta --}}</option>
+                        <option value="0">Effettua la scelta</option>
                         @foreach ($consegne as $consegna)
                           <option value="{{$consegna->soprannome}} {{ $luogo_sdoganamento == $consegna->soprannome ? 'selected' : '' }}">{{$consegna->soprannome}}</option>
                         @endforeach

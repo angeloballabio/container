@@ -24,6 +24,7 @@
                 <div class="col-12">
                     <label for="nome" class="col-3 float-left" style="text-align: right;">ISO :</label>
                     <input type="text" class="col-9 form-control float-left p-1" style="height: 20px" wire:model="valuta">
+                    @error('valuta') <span style="color: red"><br>{{ $message }}</span> @enderror
                 </div>
             </div>
         </div>
