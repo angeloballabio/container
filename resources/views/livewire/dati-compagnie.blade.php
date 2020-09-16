@@ -22,19 +22,22 @@
         <div class="shadow p-2 mb-2 bg-white rounded">
             <div class="row">
                 <div class="col-6">
+                    @error('nome') <div class="ml-3"><span style="color: red">{{ $message }}</span></div> @enderror
                     <label for="nome" class="col-3 float-left" style="text-align: right;">Nome :</label>
                     <input type="text" class="col-7 form-control float-left p-1" style="height: 20px" wire:model="nome">
-                    @error('nome') <span style="color: red"><br>{{ $message }}</span> @enderror
+
                 </div>
                 <div class="col-8">
+                    @error('indirizzo_web') <div class="ml-3"><span style="color: red">{{ $message }}</span></div> @enderror
                     <label for="indirizzo-web" class="col-2 float-left" style="text-align: right;">Indirizzo web :</label>
                     <input type="text" class="col-10 form-control float-left p-1" style="height: 20px" wire:model="indirizzo_web">
-                    @error('indirizzo_web') <span style="color: red"><br>{{ $message }}</span> @enderror
+
                 </div>
                 <div class="col-6">
+                    @error('contatto') <div class="ml-3"><span style="color: red">{{ $message }}</span></div> @enderror
                     <label for="contatto" class="col-4 float-left" style="text-align: right;">contatto :</label>
                     <input type="text" class="col-8 form-control float-left p-1" style="height: 20px" wire:model="contatto">
-                    @error('contatto') <span style="color: red"><br>{{ $message }}</span> @enderror
+
                 </div>
             </div>
         </div>

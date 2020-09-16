@@ -22,9 +22,10 @@
         <div class="shadow p-2 mb-2 bg-white rounded">
             <div class="row">
                 <div class="col-12">
+                    @error('tipo') <div class="ml-3"><span style="color: red">{{ $message }}</span></div> @enderror
                     <label for="nome" class="col-3 float-left" style="text-align: right;">Tipo :</label>
                     <input type="text" class="col-9 form-control float-left p-1" style="height: 20px" wire:model="tipo">
-                    @error('tipo') <span style="color: red"><br>{{ $message }}</span> @enderror
+
                 </div>
             </div>
         </div>
