@@ -17,7 +17,7 @@ use App\Valuta;
 class Formdata extends Component
 {
     public $ordine_id;
-    public $fattura_nr, $data_fattura, $fornitore, $valuta, $compagnia_navale, $data_arrivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $allegati, $dogana_sdoganamento, $luogo_sdoganamento;
+    public $fattura_nr, $data_fattura, $forn, $val, $compagnia_navale, $data_arrivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $allegati, $dogana_sdoganamento, $luogo_sdoganamento;
 
 
     protected $listeners = [
@@ -27,8 +27,8 @@ class Formdata extends Component
     protected $rules = [
         'fattura_nr' => 'required|string|max:40',
         'data_fattura' => 'required|date',
-        'fornitore' => 'required|string|max:40',
-        'valuta' => 'required|string|max:4',
+        'forn' => 'required|string|max:40',
+        'val' => 'required|string|max:4',
         'compagnia_navale' => 'required|string|max:40',
         'data_arrivo_nave' => 'required|date',
         'nome_nave' => 'required|string|max:90',
@@ -60,8 +60,8 @@ class Formdata extends Component
         if($operazione){
             $this->fattura_nr = $operazione->nr_fattura;
             $this->data_fattura = $operazione->data_fattura;
-            $this->fornitore = $operazione->nome_fornitore;
-            $this->valuta = $operazione->valuta;
+            $this->forn = $operazione->nome_fornitore;
+            $this->val = $operazione->valuta;
             $this->pratica_nr = $operazione->numero_pratica;
             $this->compagnia_navale = $operazione->compagnia_aeronavale;
             $this->data_arrivo_nave = $operazione->data_arrivo_nave;
@@ -89,6 +89,7 @@ class Formdata extends Component
             $this->tipo_container = $operazione->tipo_container;
             $this->sigillo = $operazione->sigillo;
             $this->allegati = $operazione->allegati;
+
         }
 
     }
@@ -100,8 +101,8 @@ class Formdata extends Component
         Operazione::create([
             'nr_fattura' => $this->fattura_nr,
             'data_fattura' => $this->data_fattura,
-            'nome_fornitore' => $this->fornitore,
-            'valuta' => $this->valuta,
+            'nome_fornitore' => $this->forn,
+            'valuta' => $this->val,
             'numero_pratica' => $this->pratica_nr,
             'compagnia_aeronavale' => $this->compagnia_navale,
             'data_arrivo_nave' => $this->data_arrivo_nave,
@@ -142,8 +143,8 @@ class Formdata extends Component
 
         $operazione->nr_fattura = $this->fattura_nr;
         $operazione->data_fattura =$this->data_fattura;
-        $operazione->nome_fornitore = $this->fornitore;
-        $operazione->valuta = $this->valuta;
+        $operazione->nome_fornitore = $this->forn;
+        $operazione->valuta = $this->val;
         $operazione->numero_pratica = $this->pratica_nr;
         $operazione->compagnia_aeronavale = $this->compagnia_navale;
         $operazione->data_arrivo_nave = $this->data_arrivo_nave;

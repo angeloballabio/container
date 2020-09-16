@@ -19,21 +19,20 @@
                 <div class="col-7">
                     @error('fornitore') <div class="ml-3"><span style="color: red">{{ $message }}</span> </div>@enderror
                     <label for="inputFornitore" class="col-4 float-left">Fornitore :</label>
-                    <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="fornitore">
-                        <option value="0">Effettua la scelta</option>
+                    <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="forn">
+                        <option value="">Effettua la scelta</option>
                         @foreach ($fornitori as $fornitore)
-                          <option value="{{$fornitore->soprannome}} {{ $fornitore == $fornitore->soprannome ? 'selected' : '' }}">{{$fornitore->soprannome}}</option>
+                          <option value="{{$fornitore->soprannome}} {{ $forn == $fornitore->soprannome ? 'selected' : '' }}">{{$fornitore->soprannome}}</option>
                         @endforeach
                     </select>
-
                 </div>
                 <div class="col-5">
                     @error('valuta') <div class="ml-3"><span style="color: red">{{ $message }}</span></div> @enderror
                     <label for="inputValuta" class="col-4 float-left">Valuta :</label>
-                    <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="valuta">
+                    <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="val">
                         <option value="0">Effettua la scelta</option>
                         @foreach ($valute as $valuta)
-                          <option value="{{$valuta->iso}} {{ $valuta == $valuta->iso ? 'selected' : '' }}">{{$valuta->iso}}</option>
+                          <option value="{{$valuta->iso}} {{ $val == $valuta->iso ? 'selected' : '' }}">{{$valuta->iso}}</option>
                         @endforeach
                     </select>
 
