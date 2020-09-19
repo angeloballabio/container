@@ -4,20 +4,34 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Articoli;
+use App\Fornitore;
+use App\Operazione;
 
 class DatiArticolo extends Component
 {
     /* public $id; */
     public $articolo_id = 0;
-    public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali, $val_iva, $aliquota_iva, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites;
+    public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali, $val_iva, $aliquota_iva, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites,$fornitore_id;
 
     protected $listeners = [
         'ArticoloSelezionato' => 'articoloSelezionato',
     ];
 
+    protected $rules = [
+        'descrizione_uk' => 'required|string|max:255',
+        'descrizione_it' => 'required|string|max:255',
+        'voce_doganale' => 'nullable|string|max:12',
+        'diritti_doganali' => 'nullable|numeric',
+        'val_iva' => 'nullable|numeric',
+        'aliquota_iva' => 'nullable|numeric',
+    ];
+
     public function mount($id)
     {
         $this->ordine_id = $id;
+        $operazione = Operazione::where('id','=',$id)->get()->first();
+        $fornitore = Fornitore::where('soprannome','=',$operazione->nome_fornitore)->get()->first();
+        $this->fornitore_id = $fornitore->id;
     }
 
     public function articoloSelezionato($articoloId){
@@ -50,11 +64,13 @@ class DatiArticolo extends Component
             $this->richiede_ce = $articolo->richiede_ce == 1 ? 'true':'';
             $this->richiede_age = $articolo->richiede_age == 1 ? 'true':'';
             $this->richiede_cites = $articolo->richiede_cites == 1 ? 'true':'';
+            $this->fornitore_id = $articolo->fornitore_id;
         }
     }
 
     public function aggiungi()
     {
+        $this->validate($this->rules);
        /*  dd($id); */
         $articolo = new Articoli();
         $articolo->descrizione_uk = $this->descrizione_uk;
@@ -83,6 +99,7 @@ class DatiArticolo extends Component
         $articolo->richiede_ce = $this->richiede_ce == true ? '1':'0';
         $articolo->richiede_age = $this->richiede_age == true ? '1':'0';
         $articolo->richiede_cites = $this->richiede_cites == true ? '1':'0';
+        $articolo->fornitore_id = $this->fornitore_id;
         $articolo->save();
         $id = $this->ordine_id;
         return redirect(route('distinta',compact('id')));
@@ -90,6 +107,7 @@ class DatiArticolo extends Component
 
     public function modifica()
     {
+        $this->validate($this->rules);
         $articolo = Articoli::where('id',$this->articolo_id)->get()->first();
 
         $articolo->descrizione_uk = $this->descrizione_uk;
@@ -118,6 +136,7 @@ class DatiArticolo extends Component
         $articolo->richiede_ce = $this->richiede_ce == true ? '1':'0';
         $articolo->richiede_age = $this->richiede_age == true ? '1':'0';
         $articolo->richiede_cites = $this->richiede_cites == true ? '1':'0';
+        $articolo->fornitore_id = $this->fornitore_id;
         $articolo->save();
         $id = $this->ordine_id;
         return redirect(route('distinta',compact('id')));

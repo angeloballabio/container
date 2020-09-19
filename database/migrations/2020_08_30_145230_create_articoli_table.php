@@ -41,6 +41,7 @@ class CreateArticoliTable extends Migration
             $table->boolean('richiede_ce')->default(0);
             $table->boolean('richiede_age')->default(0);
             $table->boolean('richiede_cites')->default(0);
+            $table->bigInteger('fornitore_id')->default(0);
             $table->timestamps();
         });
     }

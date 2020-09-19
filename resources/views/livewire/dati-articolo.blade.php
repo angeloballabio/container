@@ -9,7 +9,7 @@
 
 
     <div class="col-6">
-            <label for="descrizioneuk" class="col-12 float-left">Descrizione articolo uk :</label>
+            <label for="descrizioneuk" class="col-12 float-left">Descrizione articolo uk : fornitore:{{ $fornitore_id }}</label>
             <input type="text" class="col-12 float-left  " style="height: 20px" wire:model="descrizione_uk">
     </div>
     <div class="col-6">

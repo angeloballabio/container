@@ -1,6 +1,6 @@
 <div>
     <div class="col-12">
-        <div class="shadow p-2 mb-2 bg-white rounded">Dati fattura record : {{ $ordine_id }}
+        <div class="shadow p-2 mb-2 bg-white rounded">Dati fattura record : {{ $ordine_id }}, {{ $user->name }}
             <div class="row">
                 <div class="col-7">
                     @error('fattura_nr') <div class="ml-3"><span style="color: red">{{ $message }}</span></div> @enderror

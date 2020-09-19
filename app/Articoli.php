@@ -33,6 +33,7 @@ class Articoli extends Model
         'attrezzi_cucina',
         'richiede_ce',
         'richiede_age',
-        'richiede_cites'
+        'richiede_cites',
+        'fornitore_id'
     ];
 }

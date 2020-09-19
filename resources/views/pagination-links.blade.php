@@ -2,8 +2,7 @@
 {{-- <ul class="flex justify-between"> --}}
 <ul class="d-flex justify-content-start">
     <!-- prev -->
-    {{-- @if ($paginator->onFirstPage()) --}}
-    @if ($paginator->currentPage() == 1)
+    @if ($paginator->onFirstPage())
     {{-- <li class="w-16 px-2 py-1 text-center rounded border bg-gray" style="list-style-type:none;">Prev</li> --}}
     <li class="w-20 px-2 py-1 text-center rounded border shadow text-secondary" style="list-style-type:none;"  {{-- wire:click="previousPage" --}} >@lang('pagination.previous')</li>
     @else

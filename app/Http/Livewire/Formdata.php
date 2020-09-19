@@ -13,10 +13,11 @@ use App\Dogana;
 use App\TipoContainer;
 use App\Valuta;
 /* use Illuminate\Validation\Rule; */
+use Illuminate\Support\Facades\Auth;
 
 class Formdata extends Component
 {
-    public $ordine_id;
+    public $ordine_id,$user;
     public $fattura_nr, $data_fattura, $forn, $val, $compagnia_navale, $data_arrivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $allegati, $dogana_sdoganamento, $luogo_sdoganamento;
 
 
@@ -185,6 +186,7 @@ class Formdata extends Component
 
     public function render()
     {
+        $this->user = Auth::user();
         $valute = Valuta::select('iso')->orderBy('iso', 'asc')->get()->all();
         $containers = TipoContainer::select('tipo')->orderBy('tipo', 'asc')->get()->all();
         $dogane = Dogana::select('soprannome')->orderBy('soprannome', 'asc')->get()->all();

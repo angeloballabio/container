@@ -36,23 +36,23 @@
                 </div>
                 <div class="col-3">
                     <label for="container" class="col-5 float-left">Totale colli distinta :</label>
-                    <input type="text" class="col-7 float-left form-control p-1" style="height: 20px" {{-- value="{{ $operazione->container_nr }}" --}} readonly>
+                    <input type="text" class="col-7 float-left form-control p-1" style="height: 20px" value ="{{ $totale_colli }}" readonly>
                 </div>
                 <div class="col-2">
                     <label for="container" class="col-8 float-left">Totale pezzi distinta :</label>
-                    <input type="text" class="col-4 float-left form-control p-1" style="height: 20px" {{-- value="{{ $operazione->container_nr }}" --}} readonly>
+                    <input type="text" class="col-4 float-left form-control p-1" style="height: 20px" value="{{ $totale_pezzi }}" readonly>
                 </div>
                 <div class="col-3">
                     <label for="container" class="col-5 float-left">Totale lordo distinta :</label>
-                    <input type="text" class="col-6 float-left form-control p-1" style="height: 20px" {{-- value="{{ $operazione->container_nr }}" --}} readonly>
+                    <input type="text" class="col-6 float-left form-control p-1" style="height: 20px" value="{{ $totale_lordo }}" readonly>
                 </div>
                 <div class="col-2">
                     <label for="container" class="col-8 float-left">Totale netto distinta :</label>
-                    <input type="text" class="col-4 float-left form-control p-1" style="height: 20px" {{-- value="{{ $operazione->container_nr }}" --}} readonly>
+                    <input type="text" class="col-4 float-left form-control p-1" style="height: 20px" value="{{ $totale_netto }}" readonly>
                 </div>
                 <div class="col-2">
                     <label for="container" class="col-8 float-left">Valore merce distinta :</label>
-                    <input type="text" class="col-4 float-left form-control p-1" style="height: 20px" {{-- value="{{ $operazione->container_nr }}" --}} readonly>
+                    <input type="text" class="col-4 float-left form-control p-1" style="height: 20px" value="{{ $totale_valore }}" readonly>
                 </div>
             </div>
         </div>
