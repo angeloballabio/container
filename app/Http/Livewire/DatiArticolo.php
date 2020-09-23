@@ -11,7 +11,7 @@ class DatiArticolo extends Component
 {
     /* public $id; */
     public $articolo_id = 0;
-    public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali, $val_iva, $aliquota_iva, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites,$fornitore_id;
+    public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali=0, $val_iva=0, $aliquota_iva=0, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites,$fornitore_id;
 
     protected $listeners = [
         'ArticoloSelezionato' => 'articoloSelezionato',
@@ -20,7 +20,7 @@ class DatiArticolo extends Component
     protected $rules = [
         'descrizione_uk' => 'required|string|max:255',
         'descrizione_it' => 'required|string|max:255',
-        'voce_doganale' => 'nullable|string|max:12',
+        'voce_doganale' => 'required|string|max:12',
         'diritti_doganali' => 'nullable|numeric',
         'val_iva' => 'nullable|numeric',
         'aliquota_iva' => 'nullable|numeric',
@@ -70,21 +70,22 @@ class DatiArticolo extends Component
 
     public function aggiungi()
     {
-        $this->validate($this->rules);
-       /*  dd($id); */
+        $data = $this->validate($this->rules);
+
+        /* $articolo = tap(new Articoli($data))->save(); */
         $articolo = new Articoli();
         $articolo->descrizione_uk = $this->descrizione_uk;
         $articolo->descrizione_it = $this->descrizione_it;
-        $articolo->tot_pezzi = $this->tot_pezzi;
-        $articolo->tot_colli = $this->tot_colli;
-        $articolo->tot_lordo = $this->tot_lordo;
-        $articolo->tot_netto = $this->tot_netto;
-        $articolo->tot_valore = $this->tot_valore;
+        $articolo->tot_pezzi = $this->tot_pezzi == null ? 0:$this->tot_pezzi;
+        $articolo->tot_colli = $this->tot_colli == null ? 0:$this->tot_colli;
+        $articolo->tot_lordo = $this->tot_lordo == null ? 0:$this->tot_lordo;
+        $articolo->tot_netto = $this->tot_netto == null ? 0:$this->tot_netto;
+        $articolo->tot_valore = $this->tot_valore == null ? 0:$this->tot_valore;
         $articolo->ordine_id = $this->ordine_id;
         $articolo->voce_doganale = $this->voce_doganale;
-        $articolo->diritti_doganali = $this->diritti_doganali;
-        $articolo->val_iva = $this->val_iva;
-        $articolo->aliquota_iva = $this->aliquota_iva;
+        $articolo->diritti_doganali = $this->diritti_doganali == null ? 0.00:$this->diritti_doganali;
+        $articolo->val_iva = $this->val_iva == null ? 0:$this->val_iva;
+        $articolo->aliquota_iva = $this->aliquota_iva == null ? 0:$this->aliquota_iva;
         $articolo->acciaio = $this->acciaio == true ? '1':'0';
         $articolo->acciaio_inox = $this->acciaio_inox == true ? '1':'0';
         $articolo->plastica = $this->plastica == true ? '1':'0';

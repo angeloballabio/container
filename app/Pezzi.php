@@ -17,4 +17,9 @@ class Pezzi extends Model
         'articolo_id',
         'ordine_id'
     ];
+
+    public function articolo()
+    {
+        return $this->belongsTo(Articoli::class);
+    }
 }

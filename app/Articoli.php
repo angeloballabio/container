@@ -36,4 +36,6 @@ class Articoli extends Model
         'richiede_cites',
         'fornitore_id'
     ];
+
+
 }

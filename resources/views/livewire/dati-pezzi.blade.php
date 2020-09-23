@@ -8,53 +8,53 @@
     </div>
     @if($pezzo)
         <div class="col-6">
-                <label for="descrizioneuk" class="col-12 float-left">Pezzi :</label>
-                <input type="text" class="col-12 float-left  " style="height: 20px" value="{{ $pezzo->pezzi }}">
+                <label for="descrizioneuk" class="col-12 float-left">Pezzi :
+                <input type="text" class="col-12 float-left  " style="height: 20px" value="{{ $pezzo->pezzi }}"></label>
         </div>
         <div class="col-6">
-                <label for="descrizioneit" class="col-12 float-left">Colli :</label>
-                <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->colli }}">
+                <label for="descrizioneit" class="col-12 float-left">Colli :
+                <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->colli }}"></label>
         </div>
         <div class="col-6">
-                <label for="vocedoganale" class="col-12 float-left">Lordo :</label>
-                <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->lordo }}">
+                <label for="vocedoganale" class="col-12 float-left">Lordo :
+                <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->lordo }}"></label>
         </div>
         <div class="col-6">
-            <label for="dirittidoganali" class="col-12 float-left">Netto :</label>
-            <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->netto }}">
+            <label for="dirittidoganali" class="col-12 float-left">Netto :
+            <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->netto }}"></label>
         </div>
         <div class="col-6">
-            <label for="dirittidoganali" class="col-12 float-left">valore :</label>
-            <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->valore }}">
+            <label for="dirittidoganali" class="col-12 float-left">valore :
+            <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->valore }}"></label>
         </div>
         <div class="col-6">
-            <label for="dirittidoganali" class="col-12 float-left">Codice articolo :</label>
-            <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->codice_articolo }}">
+            <label for="dirittidoganali" class="col-12 float-left">Codice articolo :
+            <input type="text" class="col-12 float-left" style="height: 20px" value="{{ $pezzo->codice_articolo }}"></label>
         </div>
     @else
         <div class="col-6">
-                <label for="descrizioneuk" class="col-12 float-left">Pezzi :</label>
-                <input type="text" class="col-12 float-left  " style="height: 20px" >
+                <label for="descrizioneuk" class="col-12 float-left">Pezzi :
+                <input type="text" class="col-12 float-left  " style="height: 20px" ></label>
         </div>
         <div class="col-6">
-                <label for="descrizioneit" class="col-12 float-left">Colli :</label>
-                <input type="text" class="col-12 float-left" style="height: 20px" >
+                <label for="descrizioneit" class="col-12 float-left">Colli :
+                <input type="text" class="col-12 float-left" style="height: 20px" ></label>
         </div>
         <div class="col-6">
-                <label for="vocedoganale" class="col-12 float-left">Lordo :</label>
-                <input type="text" class="col-12 float-left" style="height: 20px" >
+                <label for="vocedoganale" class="col-12 float-left">Lordo :
+                <input type="text" class="col-12 float-left" style="height: 20px" ></label>
         </div>
         <div class="col-6">
-            <label for="dirittidoganali" class="col-12 float-left">Netto :</label>
-            <input type="text" class="col-12 float-left" style="height: 20px" >
+            <label for="dirittidoganali" class="col-12 float-left">Netto :
+            <input type="text" class="col-12 float-left" style="height: 20px" ></label>
         </div>
         <div class="col-6">
-            <label for="dirittidoganali" class="col-12 float-left">Valore :</label>
-            <input type="text" class="col-12 float-left" style="height: 20px" >
+            <label for="dirittidoganali" class="col-12 float-left">Valore :
+            <input type="text" class="col-12 float-left" style="height: 20px" ></label>
         </div>
         <div class="col-6">
-            <label for="dirittidoganali" class="col-12 float-left">Codice articolo :</label>
-            <input type="text" class="col-12 float-left" style="height: 20px" >
+            <label for="dirittidoganali" class="col-12 float-left">Codice articolo :
+            <input type="text" class="col-12 float-left" style="height: 20px" ></label>
         </div>
     @endif
 </div>

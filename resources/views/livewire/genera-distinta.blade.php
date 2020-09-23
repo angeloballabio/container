@@ -118,15 +118,16 @@
                 @livewire('elenco-articoli',['id' => $operazione->id])
             </div>
             <div class="col-sm-4 " style="border-style: solid; height: 400px;">
-                <livewire:elenco-pezzi />
+                {{-- <livewire:elenco-pezzi /> --}}
+                @livewire('elenco-pezzi',['id' => $operazione->id])
             </div>
             <div class="col-sm-8 " style="border-style: solid; height: 310px;">
                 {{-- <livewire:dati-articolo :id = "$operazione->id"> --}}
                 @livewire('dati-articolo',['id' => $operazione->id])
             </div>
             <div class="col-sm-4 " style="border-style: solid; height: 310px;">
-                <livewire:dati-pezzi />
-
+                {{-- <livewire:dati-pezzi /> --}}
+                @livewire('dati-pezzi',['id' => $operazione->id])
                 <livewire:azioni-distinta />
                 </div>
             </div>
