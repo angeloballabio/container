@@ -43,3 +43,4 @@ Route::livewire('/gestione-consegna', 'gestione-consegna')->name('consegna')->mi
 Route::livewire('/gestione-dogane', 'gestione-dogane')->name('dogana')->middleware('auth');
 Route::livewire('/gestione-container', 'gestione-container')->name('container')->middleware('auth');
 Route::livewire('/gestione-valute', 'gestione-valute')->name('valuta')->middleware('auth');
+

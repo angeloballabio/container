@@ -43,6 +43,7 @@ class CreateArticoliTable extends Migration
             $table->boolean('richiede_cites')->default(0);
             $table->bigInteger('fornitore_id')->default(0);
             $table->timestamps();
+            $table->foreign('ordine_id')->references('id')->on('operazioni')->onDelete('cascade');
         });
     }
 

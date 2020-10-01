@@ -8,15 +8,22 @@ use App\Pezzi;
 class ElencoPezzi extends Component
 {
     public $selezionato = 0;
-    public $ordine_id;
+    public $ordine_id, $articolo_id;
 
     protected $listeners = [
         'PezzoSelezionato' => 'pezzoSelezionato',
+        'ArticoloSelezionato' => 'articoloSelezionato',
     ];
+
 
     public function pezzoSelezionato($pezzoId){
         $this->selezionato = $pezzoId;
 
+    }
+
+    public function articoloSelezionato($articoloId){
+        $this->articolo_id = $articoloId;
+        $this->selezionato = 0;
     }
 
     public function mount($id)
@@ -29,6 +36,6 @@ class ElencoPezzi extends Component
 
     public function render()
     {
-        return view('livewire.elenco-pezzi', ['pezzi' => Pezzi::paginate(19)]);
+        return view('livewire.elenco-pezzi', ['pezzi' => Pezzi::where('articolo_id','=',$this->articolo_id)->paginate(19)]);
     }
 }

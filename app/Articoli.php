@@ -37,5 +37,8 @@ class Articoli extends Model
         'fornitore_id'
     ];
 
-
+    public function operazione()
+    {
+        return $this->belongsTo('App\Operazione');
+    }
 }

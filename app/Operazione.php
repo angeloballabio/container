@@ -38,4 +38,9 @@ class Operazione extends Model
         'tipo_container',
         'sigillo'
     ];
+
+    public function articolo()
+    {
+        return $this->hasOne('App\Articoli');
+    }
 }

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Articoli;
 use App\Fornitore;
 use App\Operazione;
+use App\Pezzi;
 
 class DatiArticolo extends Component
 {
