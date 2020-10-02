@@ -12,13 +12,14 @@ use App\Consegna;
 use App\Dogana;
 use App\TipoContainer;
 use App\Valuta;
+use App\ResaFattura;
 /* use Illuminate\Validation\Rule; */
 use Illuminate\Support\Facades\Auth;
 
 class Formdata extends Component
 {
     public $ordine_id,$user;
-    public $fattura_nr, $data_fattura, $forn, $val, $compagnia_navale, $data_arrivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $allegati, $dogana_sdoganamento, $luogo_sdoganamento;
+    public $fattura_nr, $data_fattura, $forn, $val, $compagnia_navale, $data_arrivo_nave, $nome_nave, $numero_obl, $container_nr, $cartoni, $lordo, $cubatura, $data_carico, $destinatario, $tipo_container, $sigillo, $trasportatore, $luogo_consegna, $pratica_nr, $data_pratica, $tot_diritti, $tot_iva, $sanitario, $nr_sanitari, $ce, $cites, $age, $dogana_t1, $allegati, $dogana_sdoganamento, $luogo_sdoganamento, $resa;
 
 
     protected $listeners = [
@@ -52,6 +53,7 @@ class Formdata extends Component
         'allegati' => 'required|string|max:255',
         'dogana_sdoganamento' => 'required|string|max:40',
         'luogo_sdoganamento' => 'required|string|max:20',
+        'resa' => 'required|string|max:4',
     ];
 
     public function ordineSelezionato($ordineId){
@@ -63,6 +65,7 @@ class Formdata extends Component
             $this->data_fattura = $operazione->data_fattura;
             $this->forn = $operazione->nome_fornitore;
             $this->val = $operazione->valuta;
+            $this->resa = $operazione->resa;
             $this->pratica_nr = $operazione->numero_pratica;
             $this->compagnia_navale = $operazione->compagnia_aeronavale;
             $this->data_arrivo_nave = $operazione->data_arrivo_nave;
@@ -104,6 +107,7 @@ class Formdata extends Component
             'data_fattura' => $this->data_fattura,
             'nome_fornitore' => $this->forn,
             'valuta' => $this->val,
+            'resa' => $this->resa,
             'numero_pratica' => $this->pratica_nr,
             'compagnia_aeronavale' => $this->compagnia_navale,
             'data_arrivo_nave' => $this->data_arrivo_nave,
@@ -146,6 +150,7 @@ class Formdata extends Component
         $operazione->data_fattura =$this->data_fattura;
         $operazione->nome_fornitore = $this->forn;
         $operazione->valuta = $this->val;
+        $operazione->resa = $this->resa;
         $operazione->numero_pratica = $this->pratica_nr;
         $operazione->compagnia_aeronavale = $this->compagnia_navale;
         $operazione->data_arrivo_nave = $this->data_arrivo_nave;
@@ -195,7 +200,8 @@ class Formdata extends Component
         $destinatari = Destinatario::select('soprannome')->orderBy('soprannome', 'asc')->get()->all();
         $compagnie = Compagnia::select('nome')->orderBy('nome', 'asc')->get()->all();
         $fornitori = Fornitore::select('soprannome')->orderBy('soprannome', 'asc')->get()->all();
-        return view('livewire.formdata', compact('fornitori','compagnie','destinatari','trasportatori','consegne', 'dogane','containers', 'valute'));
+        $rese = ResaFattura::select('iso')->orderBy('iso','asc')->get()->all();
+        return view('livewire.formdata', compact('fornitori','compagnie','destinatari','trasportatori','consegne', 'dogane','containers', 'valute', 'rese'));
     }
 
     public function bl()

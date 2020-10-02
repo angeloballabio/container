@@ -16,7 +16,7 @@
 
 
                 </div>
-                <div class="col-7">
+                <div class="col-5">
                     @error('fornitore') <div class="ml-3"><span style="color: red">{{ $message }}</span> </div>@enderror
                     <label for="inputFornitore" class="col-4 float-left">Fornitore :</label>
                     <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="forn">
@@ -26,13 +26,24 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-5">
+                <div class="col-3">
                     @error('valuta') <div class="ml-3"><span style="color: red">{{ $message }}</span></div> @enderror
-                    <label for="inputValuta" class="col-4 float-left">Valuta :</label>
-                    <select  class="col-8 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="val">
+                    <label for="inputValuta" class="col-5 float-left">Valuta:</label>
+                    <select  class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="val">
                         <option value="0">Effettua la scelta</option>
                         @foreach ($valute as $valuta)
                           <option value="{{$valuta->iso}} {{ $val == $valuta->iso ? 'selected' : '' }}">{{$valuta->iso}}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+                <div class="col-3">
+                    @error('resa') <div class="ml-3"><span style="color: red">{{ $message }}</span></div> @enderror
+                    <label for="resa" class="col-5 float-left">Resa:</label>
+                    <select  class="col-7 float-left  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="resa">
+                        <option value="0">Effettua la scelta</option>
+                        @foreach ($rese as $resa)
+                          <option value="{{$resa->iso}} {{ $resa == $resa->iso ? 'selected' : '' }}">{{$resa->iso}}</option>
                         @endforeach
                     </select>
 

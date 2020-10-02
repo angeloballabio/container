@@ -6,6 +6,7 @@ use App\Operazione;
 use Faker\Generator as Faker;
 use App\Fornitore;
 use App\Valuta;
+use App\ResaFattura;
 use App\Compagnia;
 use App\Destinatario;
 use App\Trasportatore;
@@ -34,6 +35,12 @@ $factory->define(Operazione::class, function (Faker $faker) {
     $array_valute = array();
     foreach($valute as $valuta){
         $array_valute[] = $valuta->iso.' ';
+    }
+
+    $rese = Resa::select('iso')->get();
+    $array_rese = array();
+    foreach($rese as $resa){
+        $array_rese[] = $resa->iso.' ';
     }
 
     $compagnie = Compagnia::select('nome')->get();
@@ -249,6 +256,7 @@ $factory->define(Operazione::class, function (Faker $faker) {
         'data_fattura' => $faker->date($format = 'Y-m-d', $max = '2021-12-31'),
         'nome_fornitore' => $faker->randomElement($array_fornitori),
         'valuta' => $faker->randomElement($array_valute),
+        'resa' => $faker->randomElement($array_rese),
         'numero_pratica'=> $faker->unique()->bothify('I########'),
         'compagnia_aeronavale' => $faker->randomElement($array_compagnie),
         'data_arrivo_nave' => $faker->date($format = 'Y-m-d', $max = '2021-12-31'),

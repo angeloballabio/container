@@ -38,6 +38,9 @@
                 <div class="col-4">
                     <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='gestioneValuta'>Tipo valuta</button>
                 </div>
+                <div class="col-4">
+                    <button  class="btn btn-secondary btn-lg btn-block mb-1" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='resaFattura'>Resa fattura</button>
+                </div>
             </div>
         </div>
 

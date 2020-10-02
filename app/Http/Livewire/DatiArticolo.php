@@ -7,12 +7,13 @@ use App\Articoli;
 use App\Fornitore;
 use App\Operazione;
 use App\Pezzi;
+use App\ElencoArticoli;
 
 class DatiArticolo extends Component
 {
     /* public $id; */
     public $articolo_id = 0;
-    public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali=0, $val_iva=0, $aliquota_iva=0, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites,$fornitore_id;
+    public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali=0, $val_iva=0, $aliquota_iva=0, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites,$fornitore_id, $codicearticolo, $trovatoarticolo;
 
     protected $listeners = [
         'ArticoloSelezionato' => 'articoloSelezionato',
@@ -103,6 +104,31 @@ class DatiArticolo extends Component
         $articolo->richiede_cites = $this->richiede_cites == true ? '1':'0';
         $articolo->fornitore_id = $this->fornitore_id;
         $articolo->save();
+
+        $elenco_articolo = new ElencoArticoli();
+        $elenco_articolo->descrizione_uk = $this->descrizione_uk;
+        $elenco_articolo->descrizione_it = $this->descrizione_it;
+        $elenco_articolo->voce_doganale = $this->voce_doganale;
+        $elenco_articolo->diritti_doganali = $this->diritti_doganali == null ? 0.00:$this->diritti_doganali;
+        $elenco_articolo->val_iva = $this->val_iva == null ? 0:$this->val_iva;
+        $elenco_articolo->aliquota_iva = $this->aliquota_iva == null ? 0:$this->aliquota_iva;
+        $elenco_articolo->acciaio = $this->acciaio == true ? '1':'0';
+        $elenco_articolo->acciaio_inox = $this->acciaio_inox == true ? '1':'0';
+        $elenco_articolo->plastica = $this->plastica == true ? '1':'0';
+        $elenco_articolo->legno = $this->legno == true ? '1':'0';
+        $elenco_articolo->bambu = $this->bambu == true ? '1':'0';
+        $elenco_articolo->vetro = $this->vetro == true ? '1':'0';
+        $elenco_articolo->ceramica = $this->ceramica == true ? '1':'0';
+        $elenco_articolo->carta = $this->carta == true ? '1':'0';
+        $elenco_articolo->pietra = $this->pietra == true ? '1':'0';
+        $elenco_articolo->posateria = $this->posateria == true ? '1':'0';
+        $elenco_articolo->attrezzi_cucina = $this->attrezzi_cucina == true ? '1':'0';
+        $elenco_articolo->richiede_ce = $this->richiede_ce == true ? '1':'0';
+        $elenco_articolo->richiede_age = $this->richiede_age == true ? '1':'0';
+        $elenco_articolo->richiede_cites = $this->richiede_cites == true ? '1':'0';
+        $elenco_articolo->fornitore_id = $this->fornitore_id;
+        $elenco_articolo->save();
+
         $id = $this->ordine_id;
         return redirect(route('distinta',compact('id')));
     }
@@ -140,6 +166,59 @@ class DatiArticolo extends Component
         $articolo->richiede_cites = $this->richiede_cites == true ? '1':'0';
         $articolo->fornitore_id = $this->fornitore_id;
         $articolo->save();
+
+        $elenco_articolo = ElencoArticoli::where('fornitore_id', '=', $this->fornitore_id)->where('voce_doganale', '=', $this->voce_doganale)->get()->first();
+        if($elenco_articolo)
+        {
+            $elenco_articolo->descrizione_uk = $this->descrizione_uk;
+            $elenco_articolo->descrizione_it = $this->descrizione_it;
+            $elenco_articolo->voce_doganale = $this->voce_doganale;
+            $elenco_articolo->diritti_doganali = $this->diritti_doganali == null ? 0.00:$this->diritti_doganali;
+            $elenco_articolo->val_iva = $this->val_iva == null ? 0:$this->val_iva;
+            $elenco_articolo->aliquota_iva = $this->aliquota_iva == null ? 0:$this->aliquota_iva;
+            $elenco_articolo->acciaio = $this->acciaio == true ? '1':'0';
+            $elenco_articolo->acciaio_inox = $this->acciaio_inox == true ? '1':'0';
+            $elenco_articolo->plastica = $this->plastica == true ? '1':'0';
+            $elenco_articolo->legno = $this->legno == true ? '1':'0';
+            $elenco_articolo->bambu = $this->bambu == true ? '1':'0';
+            $elenco_articolo->vetro = $this->vetro == true ? '1':'0';
+            $elenco_articolo->ceramica = $this->ceramica == true ? '1':'0';
+            $elenco_articolo->carta = $this->carta == true ? '1':'0';
+            $elenco_articolo->pietra = $this->pietra == true ? '1':'0';
+            $elenco_articolo->posateria = $this->posateria == true ? '1':'0';
+            $elenco_articolo->attrezzi_cucina = $this->attrezzi_cucina == true ? '1':'0';
+            $elenco_articolo->richiede_ce = $this->richiede_ce == true ? '1':'0';
+            $elenco_articolo->richiede_age = $this->richiede_age == true ? '1':'0';
+            $elenco_articolo->richiede_cites = $this->richiede_cites == true ? '1':'0';
+            $elenco_articolo->fornitore_id = $this->fornitore_id;
+            $elenco_articolo->save();
+        }
+        else
+        {
+            $elenco_articolo = new ElencoArticoli();
+            $elenco_articolo->descrizione_uk = $this->descrizione_uk;
+            $elenco_articolo->descrizione_it = $this->descrizione_it;
+            $elenco_articolo->voce_doganale = $this->voce_doganale;
+            $elenco_articolo->diritti_doganali = $this->diritti_doganali == null ? 0.00:$this->diritti_doganali;
+            $elenco_articolo->val_iva = $this->val_iva == null ? 0:$this->val_iva;
+            $elenco_articolo->aliquota_iva = $this->aliquota_iva == null ? 0:$this->aliquota_iva;
+            $elenco_articolo->acciaio = $this->acciaio == true ? '1':'0';
+            $elenco_articolo->acciaio_inox = $this->acciaio_inox == true ? '1':'0';
+            $elenco_articolo->plastica = $this->plastica == true ? '1':'0';
+            $elenco_articolo->legno = $this->legno == true ? '1':'0';
+            $elenco_articolo->bambu = $this->bambu == true ? '1':'0';
+            $elenco_articolo->vetro = $this->vetro == true ? '1':'0';
+            $elenco_articolo->ceramica = $this->ceramica == true ? '1':'0';
+            $elenco_articolo->carta = $this->carta == true ? '1':'0';
+            $elenco_articolo->pietra = $this->pietra == true ? '1':'0';
+            $elenco_articolo->posateria = $this->posateria == true ? '1':'0';
+            $elenco_articolo->attrezzi_cucina = $this->attrezzi_cucina == true ? '1':'0';
+            $elenco_articolo->richiede_ce = $this->richiede_ce == true ? '1':'0';
+            $elenco_articolo->richiede_age = $this->richiede_age == true ? '1':'0';
+            $elenco_articolo->richiede_cites = $this->richiede_cites == true ? '1':'0';
+            $elenco_articolo->fornitore_id = $this->fornitore_id;
+            $elenco_articolo->save();
+        }
         $id = $this->ordine_id;
         return redirect(route('distinta',compact('id')));
     }
@@ -150,6 +229,22 @@ class DatiArticolo extends Component
         $articolo->delete();
         $id = $this->ordine_id;
         return redirect(route('distinta',compact('id')));
+    }
+
+    public function trova_articolo()
+    {
+        /* dd($this->ordine_id,$this->codicearticolo); */
+        $pezzo = Pezzi::where('ordine_id','=',$this->ordine_id)->where('codice_articolo','=',$this->codicearticolo)->get()->first();
+        /* dd($pezzo); */
+        if($pezzo)
+        {
+            $articolo = Articoli::where('id','=',$pezzo->articolo_id)->get()->first();
+            $this->trovatoarticolo = $articolo->descrizione_it;
+        }
+        else{
+            $this->trovatoarticolo = 'Articolo non trovato.';
+        }
+
     }
 
     public function render()

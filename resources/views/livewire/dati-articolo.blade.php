@@ -92,14 +92,14 @@
             <label for="acciaio" style="height: 20px">Codice articolo :</label>
         </div>
         <div class="col-4 float-left">
-            <input type="text"  style="height: 20px" id="codicearticolo">
+            <input type="text"  style="height: 20px" id="codicearticolo" wire:model='codicearticolo'>
         </div>
         <div class="col-4 float-left">
-            <button type="button" class="btn btn-primary" style="height: 25px; vertical-align: middle; padding-top: 0px;">Trova articolo</button>
+            <button type="button" class="btn btn-primary" style="height: 25px; vertical-align: middle; padding-top: 0px;" wire:click='trova_articolo'>Trova articolo</button>
         </div>
         <div class="col-12 float-left">
             <label for="codicearticolo" style="height: 20px">Articolo menzionato nella descrizione :</label>
-            <input type="text"  style="height: 20px" id="codicearticolo">
+            <input type="text"  style="height: 20px" id="trovatoarticolo" wire:model='trovatoarticolo'>
         </div>
         <input type="hidden"  style="height: 20px" wire:model="ordine_id" value="{{ $ordine_id }}">
     </div>

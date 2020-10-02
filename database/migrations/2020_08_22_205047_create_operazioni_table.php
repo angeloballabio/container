@@ -19,6 +19,7 @@ class CreateOperazioniTable extends Migration
             $table->date('data_fattura')->nullable();
             $table->string('nome_fornitore',40)->nullable();
             $table->string('valuta',4)->nullable();
+            $table->string('resa',4)->nullable();
             $table->string('numero_pratica',40)->nullable();
             $table->string('compagnia_aeronavale',40)->nullable();
             $table->date('data_arrivo_nave')->nullable();

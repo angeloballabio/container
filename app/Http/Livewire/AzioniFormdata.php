@@ -86,10 +86,17 @@ class AzioniFormdata extends Component
         return redirect(route('valuta'));
     }
 
+    public function resaFattura()
+    {
+        return redirect(route('resa.fattura'));
+    }
+
     public function azzeraMaschera()
     {
         return redirect()->to('/operazioni');
     }
+
+
 
     public function render()
     {
