@@ -15,11 +15,18 @@ class Tabella extends Component
 
     protected $listeners = [
         'OrdineSelezionato' => 'tabellaSelezionato',
+        'AggiornaOperazione' => 'aggiorna_tabella',
     ];
 
     public function tabellaSelezionato($ordineId){
         $this->selezionato = $ordineId;
 
+    }
+
+    public function aggiorna_tabella()
+    {
+        $operazioni = Operazione::orderBy('data_arrivo_nave','desc')->paginate(23);
+        return view('livewire.tabella',compact('operazioni'));
     }
 
     public function render()

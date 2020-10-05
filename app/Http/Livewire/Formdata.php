@@ -43,7 +43,7 @@ class Formdata extends Component
         'destinatario' => 'required|string|max:10',
         'tipo_container' => 'required|string|max:40',
         'sigillo' => 'required|string|max:40',
-        'trasportatore' => 'required|string|max:10',
+        'trasportatore' => 'required|string|max:20',
         'luogo_consegna' => 'required|string|max:20',
         'pratica_nr' => 'required|string|max:40',
         'data_pratica' => 'required|date',
@@ -136,7 +136,8 @@ class Formdata extends Component
             'sigillo' => $this->sigillo,
             'allegati' => $this->allegati,
         ]);
-        return redirect()->to('/operazioni');
+        /* return redirect()->to('/operazioni'); */
+        $this->emit('AggiornaOperazione');
 
     }
 
@@ -179,14 +180,16 @@ class Formdata extends Component
         $operazione->sigillo = $this->sigillo;
         $operazione->allegati = $this->allegati;
         $operazione->save();
-        return redirect()->to('/operazioni');
+        /* return redirect()->to('/operazioni'); */
+        $this->emit('AggiornaOperazione');
     }
 
     public function cancella()
     {
         $operazione = Operazione::where('id',$this->ordine_id)->get()->first();
         $operazione->delete();
-        return redirect()->to('/operazioni');
+        /* return redirect()->to('/operazioni'); */
+        $this->emit('AggiornaOperazione');
     }
 
     public function render()

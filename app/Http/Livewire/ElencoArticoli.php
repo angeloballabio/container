@@ -12,6 +12,7 @@ class ElencoArticoli extends Component
 
     protected $listeners = [
         'ArticoloSelezionato' => 'articoloSelezionato',
+        'Aggiunto' => 'aggiunto',
     ];
 
     public function articoloSelezionato($articoloId){
@@ -21,6 +22,13 @@ class ElencoArticoli extends Component
     public function mount($id)
     {
         $this->ordine_id = $id;
+    }
+
+    public function aggiunto()
+    {
+        $articoli = Articoli::where('ordine_id','=',$this->ordine_id)->paginate(19);
+        return view('livewire.elenco-articoli', compact('articoli'));
+
     }
 
     public function render()

@@ -11,7 +11,7 @@ use App\ElencoArticoli;
 
 class DatiArticolo extends Component
 {
-    /* public $id; */
+
     public $articolo_id = 0;
     public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali=0, $val_iva=0, $aliquota_iva=0, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites,$fornitore_id, $codicearticolo, $trovatoarticolo;
 
@@ -74,7 +74,7 @@ class DatiArticolo extends Component
     {
         $data = $this->validate($this->rules);
 
-        /* $articolo = tap(new Articoli($data))->save(); */
+
         $articolo = new Articoli();
         $articolo->descrizione_uk = $this->descrizione_uk;
         $articolo->descrizione_it = $this->descrizione_it;
@@ -130,7 +130,8 @@ class DatiArticolo extends Component
         $elenco_articolo->save();
 
         $id = $this->ordine_id;
-        return redirect(route('distinta',compact('id')));
+        $this->emit('Aggiunto');
+
     }
 
     public function modifica()
@@ -220,7 +221,8 @@ class DatiArticolo extends Component
             $elenco_articolo->save();
         }
         $id = $this->ordine_id;
-        return redirect(route('distinta',compact('id')));
+
+        $this->emit('Aggiunto');
     }
 
     public function cancella()
@@ -228,14 +230,15 @@ class DatiArticolo extends Component
         $articolo = Articoli::where('id',$this->articolo_id)->get()->first();
         $articolo->delete();
         $id = $this->ordine_id;
-        return redirect(route('distinta',compact('id')));
+
+        $this->emit('Aggiunto');
     }
 
     public function trova_articolo()
     {
-        /* dd($this->ordine_id,$this->codicearticolo); */
+
         $pezzo = Pezzi::where('ordine_id','=',$this->ordine_id)->where('codice_articolo','=',$this->codicearticolo)->get()->first();
-        /* dd($pezzo); */
+
         if($pezzo)
         {
             $articolo = Articoli::where('id','=',$pezzo->articolo_id)->get()->first();

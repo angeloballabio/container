@@ -13,6 +13,7 @@ class ElencoPezzi extends Component
     protected $listeners = [
         'PezzoSelezionato' => 'pezzoSelezionato',
         'ArticoloSelezionato' => 'articoloSelezionato',
+        'AggiuntoPezzo' => 'aggiunto_pezzo',
     ];
 
 
@@ -32,6 +33,12 @@ class ElencoPezzi extends Component
         /* $operazione = Operazione::where('id','=',$id)->get()->first();
         $fornitore = Fornitore::where('soprannome','=',$operazione->nome_fornitore)->get()->first();
         $this->fornitore_id = $fornitore->id; */
+    }
+
+    public function aggiunto_pezzo()
+    {
+        $pezzi = Pezzi::where('articolo_id','=',$this->articolo_id)->paginate(19);
+        return view('livewire.elenco-pezzi', compact('pezzi'));
     }
 
     public function render()

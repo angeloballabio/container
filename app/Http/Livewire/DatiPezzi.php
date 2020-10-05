@@ -96,7 +96,10 @@ class DatiPezzi extends Component
         $articolo->save();
 
         $id = $this->ordine_id;
-        return redirect(route('distinta',compact('id')));
+        $this->emit('AggiuntoPezzo');
+        $this->emit('Aggiunto');
+        $this->emit('Modificato');
+        
     }
 
     public function modifica()
@@ -138,8 +141,10 @@ class DatiPezzi extends Component
         $articolo->save();
 
         $id = $this->ordine_id;
-
-        return redirect(route('distinta',compact('id')));
+        $this->emit('AggiuntoPezzo');
+        $this->emit('Aggiunto');
+        $this->emit('Modificato');
+        
     }
 
     public function cancella()
@@ -168,7 +173,10 @@ class DatiPezzi extends Component
         $articolo->tot_valore = $valore;
         $articolo->save();
         $id = $this->ordine_id;
-        return redirect(route('distinta',compact('id')));
+        $this->emit('AggiuntoPezzo');
+        $this->emit('Aggiunto');
+        $this->emit('Modificato');
+        
     }
 
     public function render()
