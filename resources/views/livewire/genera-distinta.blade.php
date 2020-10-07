@@ -128,7 +128,8 @@
             <div class="col-sm-4 " style="border-style: solid; height: 310px;">
                 {{-- <livewire:dati-pezzi /> --}}
                 @livewire('dati-pezzi',['id' => $operazione->id])
-                <livewire:azioni-distinta />
+                @livewire('azioni-distinta',['id' => $operazione->id])
+                {{-- <livewire:azioni-distinta /> --}}
                 </div>
             </div>
         </div>

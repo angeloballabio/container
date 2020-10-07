@@ -12,7 +12,7 @@
                 </p>
 
             </div>
-          </div>
+        </div>
         <div class="col-4 col-span-5">
             <div class="card" style="width: 25rem;">
                 <div class="card-body">

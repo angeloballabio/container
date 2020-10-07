@@ -3,8 +3,8 @@
         <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click='aggiungi'>Aggiungi{{-- &#10010; --}}</button>
         <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click='modifica'>Modifica{{-- &#10004; --}}</button>
         <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click='cancella'>Cancella{{-- &#8722; --}}</button>
-        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Sposta{{-- &#10549; --}}</button>
-        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Ricarica{{-- &#9850; --}}</button>
+        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click='sposta'>Sposta{{-- &#10549; --}}</button>
+        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click='ricarica'>Ricarica{{-- &#9850; --}}</button>
     </div>
     @if ($errors->any())
         <div class="alert alert-danger col-12" role="alert">

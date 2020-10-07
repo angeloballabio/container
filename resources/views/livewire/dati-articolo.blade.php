@@ -3,8 +3,8 @@
         <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click="aggiungi">Aggiungi{{-- &#10010; --}}</button>
         <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click="modifica()">Modifica{{-- &#10004; --}}</button>
         <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click="cancella">Cancella{{-- &#8722; --}}</button>
-        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Sposta{{-- &#10549; --}}</button>
-        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Ricarica{{-- &#9850; --}}</button>
+        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click='sposta'>Sposta{{-- &#10549; --}}</button>
+        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block wire:click='ricarica'>Ricarica{{-- &#9850; --}}</button>
     </div>
     @if ($errors->any())
         <div class="alert alert-danger col-12" role="alert">
@@ -100,6 +100,15 @@
         <div class="col-12 float-left">
             <label for="codicearticolo" style="height: 20px">Articolo menzionato nella descrizione :</label>
             <input type="text"  style="height: 20px" id="trovatoarticolo" wire:model='trovatoarticolo'>
+        </div>
+        <div class="col-12 float-left">
+            <label for="sposta_articolo" style="height: 20px">Sposta articolo in :</label>
+            <select  class=" float-right  custom-select" style="height: 25px; vertical-align: middle; padding-top: 0px;"  wire:model="sposta_articolo" wire:click='spostaarticolo'>
+                <option value="0">Effettua la scelta</option>
+                @foreach ($spostaArticoli as $spostaArticolo)
+                  <option value="{{$spostaArticolo->descrizione_it}} {{ $sposta_articolo == $spostaArticolo->descrizione_it ? 'selected' : '' }}">{{$spostaArticolo->descrizione_it}}</option>
+                @endforeach
+            </select>
         </div>
         <input type="hidden"  style="height: 20px" wire:model="ordine_id" value="{{ $ordine_id }}">
     </div>

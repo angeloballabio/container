@@ -44,3 +44,4 @@ Route::livewire('/gestione-dogane', 'gestione-dogane')->name('dogana')->middlewa
 Route::livewire('/gestione-container', 'gestione-container')->name('container')->middleware('auth');
 Route::livewire('/gestione-valute', 'gestione-valute')->name('valuta')->middleware('auth');
 Route::livewire('/resa-fattura', 'resa-fattura')->name('resa.fattura')->middleware('auth');
+Route::livewire('/stampa-distinta/{id}', 'stampa-distinta')->name('stampa.distinta')->middleware('auth');

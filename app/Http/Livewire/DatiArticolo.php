@@ -13,7 +13,7 @@ class DatiArticolo extends Component
 {
 
     public $articolo_id = 0;
-    public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali=0, $val_iva=0, $aliquota_iva=0, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites,$fornitore_id, $codicearticolo, $trovatoarticolo;
+    public $descrizione_uk, $descrizione_it, $tot_pezzi, $tot_colli, $tot_lordo, $tot_netto, $tot_valore, $ordine_id, $voce_doganale, $diritti_doganali=0, $val_iva=0, $aliquota_iva=0, $acciaio, $acciaio_inox, $plastica, $legno, $bambu, $vetro, $ceramica, $carta, $pietra, $posateria, $attrezzi_cucina, $richiede_ce, $richiede_age, $richiede_cites,$fornitore_id, $codicearticolo, $trovatoarticolo, $sposta_articolo;
 
     protected $listeners = [
         'ArticoloSelezionato' => 'articoloSelezionato',
@@ -250,8 +250,61 @@ class DatiArticolo extends Component
 
     }
 
+    public function ricarica()
+    {
+        $this->emit('Aggiunto');
+    }
+
+    public function spostaarticolo()
+    {
+        $this->emit('SetSpostaArticolo',$this->sposta_articolo);
+    }
+
+    public function sposta()
+    {
+        $articolo = Articoli::where('descrizione_it','=',$this->sposta_articolo)->get()->first();
+        $articolo_destinazione_id = $articolo->id;
+        $pezzi = Pezzi::where('articolo_id','=',$this->articolo_id)->get()->all();
+        foreach($pezzi as $pezzo)
+        {
+            $pezzo->articolo_id = $articolo_destinazione_id;
+            $pezzo->save();
+        }
+        $i_pezzi = Pezzi::where('articolo_id','=',$articolo_destinazione_id)->get()->all();
+        $pezzi = 0;
+        $colli = 0;
+        $lordo = 0;
+        $netto = 0;
+        $valore = 0;
+        foreach($i_pezzi as $pezzo){
+            $pezzi = $pezzi + $pezzo->pezzi;
+            $colli = $colli + $pezzo->colli;
+            $lordo = $lordo + $pezzo->lordo;
+            $netto = $netto + $pezzo->netto;
+            $valore = $valore + $pezzo->valore;
+        }
+        $articolo = Articoli::where('id',$articolo_destinazione_id)->get()->first();
+        $articolo->tot_pezzi = $pezzi;
+        $articolo->tot_colli = $colli;
+        $articolo->tot_lordo = $lordo;
+        $articolo->tot_netto = $netto;
+        $articolo->tot_valore = $valore;
+        $articolo->save();
+        $articolo = Articoli::where('id',$this->articolo_id)->get()->first();
+        $articolo->tot_pezzi = 0;
+        $articolo->tot_colli = 0;
+        $articolo->tot_lordo = 0;
+        $articolo->tot_netto = 0;
+        $articolo->tot_valore = 0;
+        $articolo->save();
+        $this->emit('AggiuntoPezzo');
+        $this->emit('Aggiunto');
+        $this->emit('Modificato');
+    }
+
     public function render()
     {
-        return view('livewire.dati-articolo');
+        $spostaArticoli = Articoli::where('ordine_id','=',$this->ordine_id)->get();
+        return view('livewire.dati-articolo', compact('spostaArticoli'));
     }
 }
